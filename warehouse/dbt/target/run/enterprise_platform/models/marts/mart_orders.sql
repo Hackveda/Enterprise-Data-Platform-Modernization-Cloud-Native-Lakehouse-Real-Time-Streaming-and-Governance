@@ -1,0 +1,16 @@
+
+  
+    
+    
+
+    create  table
+      "warehouse"."main"."mart_orders__dbt_tmp"
+  
+    as (
+      select o.order_id, o.customer_id, c.full_name, c.email, c.country,
+       o.amount, o.status, o.updated_at
+from "warehouse"."main"."stg_orders" o
+join "warehouse"."main"."stg_customers" c using(customer_id)
+    );
+  
+  
