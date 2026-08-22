@@ -42,6 +42,20 @@ Batch path:
 PostgreSQL OLTP ──> Parquet raw ──> dbt ──> DuckDB curated mart ──> FastAPI
 ```
 
+## Project Screenshots
+
+### Live real-time simulator
+
+The browser simulator shows live event throughput, latency, GMV, Kafka delivery, MinIO lake-object growth, platform health, status mix, and the full Source → Kafka → Quality/Persist → Raw Lake flow.
+
+![Live Enterprise Data Platform Simulator](assets/live-simulator-dashboard.jpg)
+
+### MinIO raw lake
+
+Real-time events are persisted as partitioned Parquet objects under `raw/orders/dt=YYYY-MM-DD/hour=HH/`.
+
+![MinIO Raw Lake Parquet Objects](assets/minio-raw-lake.jpg)
+
 ## 1. Start infrastructure
 
 ```bash
@@ -115,16 +129,16 @@ The dashboard provides:
 
 - Start / Stop simulation controls
 - Adjustable event rate
-- live event count and throughput
-- average event latency
-- live GMV
+- Live event count and throughput
+- Average event latency
+- Live GMV
 - Kafka health
 - MinIO object count
-- animated Source → Kafka → Quality/Persist → Raw Lake pipeline
-- live event stream
-- status distribution
-- selected event payload
-- latest MinIO object URI
+- Animated Source → Kafka → Quality/Persist → Raw Lake pipeline
+- Live event stream
+- Status distribution
+- Selected event payload
+- Latest MinIO object URI
 
 Swagger remains available at:
 
@@ -224,18 +238,6 @@ http://EC2_PUBLIC_IP:8000/metrics
 - JSON catalog → Collibra / DataHub / OpenMetadata / Dataplex
 - bearer demo token → enterprise IAM/OAuth2/mTLS
 - local Airflow → Cloud Composer / MWAA / Astronomer
-
-## Interview demo sequence
-
-1. Open the live simulator.
-2. Click **Start simulation**.
-3. Show events moving through Source → Kafka → persistence → MinIO.
-4. Open MinIO and refresh the `raw` bucket to show new partitioned Parquet objects.
-5. Open `/v1/live/lake` to show object count and latest paths.
-6. Query `live_events` in DuckDB to demonstrate durable analytical persistence.
-7. Run dbt models and tests to explain the curated path and governance.
-8. Open `/metrics` to discuss operational SLOs.
-9. Map the local PoV components to managed cloud services.
 
 ## Target SLOs represented by the design
 
