@@ -48,13 +48,13 @@ PostgreSQL OLTP ──> Parquet raw ──> dbt ──> DuckDB curated mart ─�
 
 The browser simulator shows live event throughput, latency, GMV, Kafka delivery, MinIO lake-object growth, platform health, status mix, and the full Source → Kafka → Quality/Persist → Raw Lake flow.
 
-![Live Enterprise Data Platform Simulator](assets/live-simulator-dashboard.jpg)
+![Live Enterprise Data Platform Simulator](live-simulator-dashboard.jpg)
 
 ### MinIO raw lake
 
 Real-time events are persisted as partitioned Parquet objects under `raw/orders/dt=YYYY-MM-DD/hour=HH/`.
 
-![MinIO Raw Lake Parquet Objects](assets/minio-raw-lake.jpg)
+![MinIO Raw Lake Parquet Objects](minio-raw-lake.jpg)
 
 ## 1. Start infrastructure
 
