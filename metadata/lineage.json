@@ -1,0 +1,9 @@
+{
+  "edges": [
+    ["postgres.customers","stg_customers"],
+    ["postgres.orders","stg_orders"],
+    ["stg_customers","mart_orders"],
+    ["stg_orders","mart_orders"],
+    ["kafka.orders.events.v1","minio.raw.orders"]
+  ]
+}

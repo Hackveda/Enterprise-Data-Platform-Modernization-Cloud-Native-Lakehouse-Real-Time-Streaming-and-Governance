@@ -1,0 +1,11 @@
+name: enterprise_platform
+version: '1.0'
+config-version: 2
+profile: enterprise_platform
+model-paths: ["models"]
+models:
+  enterprise_platform:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

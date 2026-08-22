@@ -1,0 +1,7 @@
+enterprise_platform:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: ../../data/warehouse.duckdb
+      threads: 4

@@ -1,0 +1,10 @@
+{
+  "datasets": [
+    {"name":"raw.orders.events.v1","owner":"data-platform","classification":"internal","retention_days":30},
+    {"name":"stg_customers","owner":"sales-data","classification":"confidential","pii":["full_name","email"]},
+    {"name":"mart_orders","owner":"analytics","classification":"confidential","pii":["full_name","email"]}
+  ],
+  "policies": [
+    {"name":"mask_customer_email","dataset":"mart_orders","column":"email","rule":"mask outside privileged warehouse roles"}
+  ]
+}
