@@ -8,15 +8,16 @@
     :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
     * { box-sizing: border-box; }
     body { margin: 0; background: radial-gradient(circle at top, #17345d 0%, #07111f 38%, #030712 100%); color: #e5eefb; min-height: 100vh; }
+    a { color:inherit; text-decoration:none; }
     .wrap { max-width: 1500px; margin: 0 auto; padding: 24px; }
     .top { display:flex; gap:18px; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; margin-bottom:18px; }
     .eyebrow { color:#60a5fa; text-transform:uppercase; letter-spacing:.16em; font-size:12px; font-weight:800; }
     h1 { margin:5px 0 6px; font-size:clamp(28px,4vw,46px); }
     .sub { color:#9fb1c7; max-width:780px; }
     .controls { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
-    select, button { border:1px solid #29415f; background:#0a1728; color:#eaf2ff; border-radius:12px; padding:11px 14px; font:inherit; }
-    button { cursor:pointer; font-weight:800; }
-    button.primary { background:linear-gradient(135deg,#2563eb,#06b6d4); border:none; }
+    select, button, .nav-link { border:1px solid #29415f; background:#0a1728; color:#eaf2ff; border-radius:12px; padding:11px 14px; font:inherit; }
+    button, .nav-link { cursor:pointer; font-weight:800; }
+    button.primary, .nav-link.primary { background:linear-gradient(135deg,#2563eb,#06b6d4); border:none; }
     button.stop { background:#2a1117; border-color:#7f1d1d; }
     .status { display:inline-flex; align-items:center; gap:8px; font-size:13px; color:#b8c8db; }
     .dot { width:9px; height:9px; border-radius:999px; background:#f59e0b; box-shadow:0 0 14px currentColor; }
@@ -30,7 +31,7 @@
     .grid { display:grid; grid-template-columns:1.5fr .9fr; gap:14px; }
     .panel { padding:18px; min-width:0; }
     .panel h2 { margin:0 0 14px; font-size:16px; }
-    .pipeline { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; align-items:center; }
+    .pipeline { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; align-items:center; }
     .stage { padding:16px 12px; text-align:center; background:#071321; border:1px solid #213753; border-radius:16px; position:relative; transition:.2s ease; }
     .stage.active { border-color:#22d3ee; transform:translateY(-2px); box-shadow:0 0 26px rgba(34,211,238,.22); }
     .stage .icon { font-size:25px; display:block; margin-bottom:8px; }
@@ -49,7 +50,7 @@
     pre { margin:0; white-space:pre-wrap; word-break:break-word; color:#c7d7ea; font-size:12px; background:#06101c; padding:14px; border-radius:14px; min-height:170px; }
     .bar { height:8px; background:#12243a; border-radius:999px; overflow:hidden; }
     .bar > span { display:block; height:100%; background:linear-gradient(90deg,#3b82f6,#22d3ee); width:0; }
-    @media(max-width:1100px){ .cards{grid-template-columns:repeat(3,1fr)} .grid{grid-template-columns:1fr} }
+    @media(max-width:1100px){ .cards{grid-template-columns:repeat(3,1fr)} .grid{grid-template-columns:1fr} .pipeline{grid-template-columns:repeat(3,1fr)} }
     @media(max-width:700px){ .wrap{padding:14px} .cards{grid-template-columns:repeat(2,1fr)} .pipeline{grid-template-columns:1fr 1fr} }
   </style>
 </head>
@@ -57,11 +58,12 @@
 <div class="wrap">
   <div class="top">
     <div>
-      <div class="eyebrow">Cloud-Native Lakehouse · Real-Time Streaming · Governance</div>
+      <div class="eyebrow">Cloud-Native Lakehouse · Real-Time Streaming · Snowflake Marts</div>
       <h1>Enterprise Data Platform Live Simulator</h1>
-      <div class="sub">Synthetic order events flow through Kafka / Redpanda, land in MinIO as partitioned Parquet, persist to DuckDB, and stream into this dashboard over WebSockets.</div>
+      <div class="sub">Synthetic order events flow through Kafka / Redpanda, land in MinIO as partitioned Parquet, persist locally, and feed Snowflake RAW → STAGING → MARTS for analytical consumption.</div>
     </div>
     <div class="controls">
+      <a class="nav-link primary" href="/marts">Open Department Marts</a>
       <span class="status"><span id="socketDot" class="dot"></span><span id="socketState">Connecting</span></span>
       <select id="rate"><option value="0.5">0.5 evt/s</option><option value="1">1 evt/s</option><option value="2" selected>2 evt/s</option><option value="5">5 evt/s</option><option value="10">10 evt/s</option></select>
       <button id="start" class="primary">▶ Start simulation</button>
@@ -84,8 +86,9 @@
       <div class="pipeline">
         <div id="s1" class="stage"><span class="icon">🧾</span><b>Source Apps</b><small>Web · Mobile · Partner API</small></div>
         <div id="s2" class="stage"><span class="icon">⚡</span><b>Kafka / Redpanda</b><small>orders.events.v1</small></div>
-        <div id="s3" class="stage"><span class="icon">✓</span><b>Quality + Persist</b><small>Schema · DuckDB</small></div>
-        <div id="s4" class="stage"><span class="icon">◫</span><b>Raw Lake</b><small>MinIO · Parquet</small></div>
+        <div id="s3" class="stage"><span class="icon">◫</span><b>Raw Lake</b><small>MinIO · Parquet</small></div>
+        <div id="s4" class="stage"><span class="icon">❄</span><b>Snowflake</b><small>RAW · STAGING</small></div>
+        <div id="s5" class="stage"><span class="icon">▦</span><b>Business Marts</b><small>Latest analytical state</small></div>
       </div>
 
       <div class="stream">
@@ -103,7 +106,7 @@
           <div class="health-row"><span>FastAPI</span><span class="pill">HEALTHY</span></div>
           <div class="health-row"><span>Kafka / Redpanda</span><span id="kafkaHealth" class="pill">CONNECTED</span></div>
           <div class="health-row"><span>MinIO Bucket</span><span id="bucketHealth" class="pill">raw</span></div>
-          <div class="health-row"><span>DuckDB</span><span class="pill">WRITING</span></div>
+          <div class="health-row"><span>Snowflake</span><span id="snowflakeHealth" class="pill">CHECKING</span></div>
         </div>
       </div>
       <div class="panel">
@@ -121,14 +124,15 @@
 const $ = (id) => document.getElementById(id);
 let count=0, gmv=0, latencies=[], timestamps=[], statuses={}, latestLake=null;
 function money(v){return new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:0}).format(v)}
-function flash(){['s1','s2','s3','s4'].forEach((id,i)=>setTimeout(()=>{const el=$(id);el.classList.add('active');setTimeout(()=>el.classList.remove('active'),250)},i*110));}
+function flash(){['s1','s2','s3','s4','s5'].forEach((id,i)=>setTimeout(()=>{const el=$(id);el.classList.add('active');setTimeout(()=>el.classList.remove('active'),250)},i*100));}
 function updateMix(){const total=Object.values(statuses).reduce((a,b)=>a+b,0)||1; $('mix').innerHTML=Object.entries(statuses).map(([k,v])=>`<div style="margin:12px 0"><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px"><span>${k}</span><b>${v}</b></div><div class="bar"><span style="width:${(v/total)*100}%"></span></div></div>`).join('')||'<div style="color:#7f93ad">No events yet.</div>';}
 function renderEvent(e,lake){count++; gmv+=Number(e.amount||0); latencies.push(Number(e.latency_ms||0)); if(latencies.length>50)latencies.shift(); timestamps.push(Date.now()); timestamps=timestamps.filter(t=>Date.now()-t<10000); statuses[e.status]=(statuses[e.status]||0)+1; $('events').textContent=count.toLocaleString(); $('gmv').textContent=money(gmv); $('latency').textContent=Math.round(latencies.reduce((a,b)=>a+b,0)/latencies.length)+' ms'; $('throughput').textContent=(timestamps.length/10).toFixed(1)+'/s'; if(lake) latestLake=lake; flash(); updateMix(); const tr=document.createElement('tr'); tr.innerHTML=`<td>${new Date(e.event_ts).toLocaleTimeString()}</td><td>#${e.order_id}</td><td>${e.customer_id}</td><td>${e.channel||'—'}</td><td>${e.region||'—'}</td><td>${money(e.amount)}</td><td>${e.status}</td><td>${e.latency_ms||0} ms</td>`; tr.addEventListener('click',()=>{$('detail').textContent=JSON.stringify({event:e,latest_lake_write:latestLake},null,2)}); $('rows').prepend(tr); while($('rows').children.length>50)$('rows').lastChild.remove(); $('detail').textContent=JSON.stringify({event:e,latest_lake_write:latestLake},null,2);}
 function connect(){const proto=location.protocol==='https:'?'wss':'ws'; const ws=new WebSocket(`${proto}://${location.host}/ws/live`); ws.onopen=()=>{$('socketDot').classList.add('on');$('socketState').textContent='Live connected';ws.send('ready')}; ws.onmessage=(m)=>{const p=JSON.parse(m.data); if(p.type==='event')renderEvent(p.event,p.lake_uri); if(p.type==='lake_flush'&&p.lake_uri){latestLake=p.lake_uri;$('detail').textContent=JSON.stringify({latest_lake_write:latestLake},null,2)} if(p.type==='health'&&p.kafka){$('kafkaHealth').textContent=String(p.kafka).toUpperCase()}}; ws.onclose=()=>{$('socketDot').classList.remove('on');$('socketState').textContent='Reconnecting';setTimeout(connect,1500)};}
 async function lake(){try{const r=await fetch('/v1/live/lake'); const d=await r.json(); $('objects').textContent=d.objects??0; $('bucketHealth').textContent=d.bucket||'raw'; if(d.latest&&d.latest[0]) latestLake='s3://'+(d.bucket||'raw')+'/'+d.latest[0];}catch(e){}}
+async function snowflake(){try{const r=await fetch('/v1/snowflake/health'); if(!r.ok)throw new Error(); const d=await r.json(); $('snowflakeHealth').textContent=d.status==='connected'?'CONNECTED':'UNKNOWN';}catch(e){$('snowflakeHealth').textContent='UNAVAILABLE';}}
 $('start').addEventListener('click',async()=>{const rate=Number($('rate').value); await fetch(`/v1/simulation/start?rate=${rate}`,{method:'POST'});});
 $('stop').addEventListener('click',async()=>{await fetch('/v1/simulation/stop',{method:'POST'});});
-connect(); lake(); setInterval(lake,2500); updateMix();
+connect(); lake(); snowflake(); setInterval(lake,2500); setInterval(snowflake,10000); updateMix();
 </script>
 </body>
 </html>
