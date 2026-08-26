@@ -1,4 +1,4 @@
-.PHONY: up down extract warehouse test events stream api demo
+.PHONY: up down extract warehouse test events stream api demo snowflake snowflake-verify
 up:
 	docker compose up -d postgres redpanda minio
 
@@ -25,3 +25,9 @@ api:
 
 demo:
 	bash scripts/run_demo.sh
+
+snowflake:
+	bash scripts/run_snowflake_demo.sh
+
+snowflake-verify:
+	python scripts/verify_snowflake.py
