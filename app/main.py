@@ -11,6 +11,7 @@ from pathlib import Path
 import duckdb
 import pyarrow as pa
 import pyarrow.parquet as pq
+import snowflake.connector
 from fastapi import FastAPI, Header, HTTPException, WebSocket, WebSocketDisconnect
 from fastapi.responses import FileResponse
 from kafka import KafkaConsumer, KafkaProducer
@@ -29,7 +30,11 @@ MINIO_SECRET_KEY = os.getenv("MINIO_SECRET_KEY", "minioadmin")
 RAW_BUCKET = os.getenv("MINIO_BUCKET", "raw")
 TOPIC = "orders.events.v1"
 
-app = FastAPI(title="Enterprise Data Platform API", version="2.0.0")
+SNOWFLAKE_DB = os.getenv("SNOWFLAKE_DATABASE", "ENTERPRISE_PLATFORM")
+SNOWFLAKE_WH = os.getenv("SNOWFLAKE_WAREHOUSE", "PLATFORM_WH")
+SNOWFLAKE_ROLE = os.getenv("SNOWFLAKE_ROLE", "PLATFORM_ROLE")
+
+app = FastAPI(title="Enterprise Data Platform API", version="3.0.0")
 REQUESTS = Counter("platform_api_requests_total", "API requests", ["path", "status"])
 LATENCY = Histogram("platform_api_latency_seconds", "API latency", ["path"])
 EVENTS = Counter("platform_stream_events_total", "Stream events consumed")
@@ -49,8 +54,10 @@ def authorize(authorization: str | None):
         raise HTTPException(status_code=401, detail="Invalid or missing bearer token")
 
 
-def mask_email(email: str) -> str:
-    local, _, domain = email.partition("@")
+def mask_email(email: str | None) -> str:
+    if not email:
+        return "—"
+    local, _, domain = str(email).partition("@")
     if not domain:
         return "***"
     return f"{local[:1]}***@{domain}"
@@ -59,6 +66,32 @@ def mask_email(email: str) -> str:
 def warehouse_connection(read_only: bool = False):
     Path(WAREHOUSE).parent.mkdir(parents=True, exist_ok=True)
     return duckdb.connect(WAREHOUSE, read_only=read_only)
+
+
+def snowflake_connection():
+    required = ["SNOWFLAKE_ACCOUNT", "SNOWFLAKE_USER", "SNOWFLAKE_PASSWORD"]
+    missing = [name for name in required if not os.getenv(name)]
+    if missing:
+        raise RuntimeError(f"Missing Snowflake environment variables: {', '.join(missing)}")
+    return snowflake.connector.connect(
+        account=os.environ["SNOWFLAKE_ACCOUNT"],
+        user=os.environ["SNOWFLAKE_USER"],
+        password=os.environ["SNOWFLAKE_PASSWORD"],
+        warehouse=SNOWFLAKE_WH,
+        database=SNOWFLAKE_DB,
+        role=SNOWFLAKE_ROLE,
+    )
+
+
+def snowflake_rows(sql: str, params: tuple | None = None) -> list[dict]:
+    conn = snowflake_connection()
+    try:
+        cur = conn.cursor(snowflake.connector.DictCursor)
+        cur.execute(sql, params or ())
+        rows = cur.fetchall()
+        return [{str(k).lower(): v for k, v in row.items()} for row in rows]
+    finally:
+        conn.close()
 
 
 def ensure_live_table():
@@ -248,6 +281,14 @@ def dashboard():
     return FileResponse(index_file)
 
 
+@app.get("/marts", include_in_schema=False)
+def marts_dashboard():
+    page = STATIC_DIR / "marts.html"
+    if not page.exists():
+        raise HTTPException(status_code=503, detail="Marts dashboard static file is missing")
+    return FileResponse(page)
+
+
 @app.get("/health")
 def health():
     return {
@@ -256,7 +297,106 @@ def health():
         "kafka": KAFKA_BOOTSTRAP,
         "minio": MINIO_ENDPOINT,
         "bucket": RAW_BUCKET,
+        "snowflake_database": SNOWFLAKE_DB,
+        "snowflake_warehouse": SNOWFLAKE_WH,
     }
+
+
+@app.get("/v1/snowflake/health")
+def snowflake_health():
+    try:
+        rows = snowflake_rows(
+            "SELECT CURRENT_DATABASE() database_name, CURRENT_WAREHOUSE() warehouse_name, CURRENT_ROLE() role_name, CURRENT_TIMESTAMP() checked_at"
+        )
+        return {"status": "connected", **rows[0]}
+    except Exception as exc:
+        raise HTTPException(status_code=503, detail=f"Snowflake unavailable: {exc}")
+
+
+@app.get("/v1/marts/department/{department}")
+def department_mart(department: str, limit: int = 30):
+    department = department.lower().strip()
+    allowed = {"executive", "sales", "finance", "customer-success", "operations"}
+    if department not in allowed:
+        raise HTTPException(status_code=404, detail="Unknown department")
+
+    limit = min(max(limit, 5), 100)
+
+    try:
+        summary = snowflake_rows(f"""
+            SELECT
+                COUNT(*) AS order_count,
+                COALESCE(ROUND(SUM(amount), 2), 0) AS gmv,
+                COUNT(DISTINCT customer_id) AS customers,
+                COALESCE(ROUND(AVG(amount), 2), 0) AS avg_order_value,
+                COUNT_IF(status = 'PAID') AS paid_orders,
+                COUNT_IF(status = 'SHIPPED') AS shipped_orders,
+                COUNT_IF(status = 'CANCELLED') AS cancelled_orders,
+                COUNT_IF(source_type = 'EVENT') AS event_backed_orders,
+                MAX(updated_at) AS freshest_record
+            FROM {SNOWFLAKE_DB}.MARTS.MART_ORDERS
+        """)[0]
+
+        if department == "sales":
+            breakdown = snowflake_rows(f"""
+                SELECT COALESCE(country, 'Unknown') label,
+                       COUNT(*) orders,
+                       COALESCE(ROUND(SUM(amount), 2), 0) value
+                FROM {SNOWFLAKE_DB}.MARTS.MART_ORDERS
+                GROUP BY 1 ORDER BY value DESC LIMIT 8
+            """)
+        elif department == "finance":
+            breakdown = snowflake_rows(f"""
+                SELECT status label,
+                       COUNT(*) orders,
+                       COALESCE(ROUND(SUM(amount), 2), 0) value
+                FROM {SNOWFLAKE_DB}.MARTS.MART_ORDERS
+                GROUP BY 1 ORDER BY value DESC
+            """)
+        elif department == "customer-success":
+            breakdown = snowflake_rows(f"""
+                SELECT COALESCE(country, 'Unknown') label,
+                       COUNT(DISTINCT customer_id) orders,
+                       COUNT_IF(status = 'CANCELLED') value
+                FROM {SNOWFLAKE_DB}.MARTS.MART_ORDERS
+                GROUP BY 1 ORDER BY value DESC, orders DESC LIMIT 8
+            """)
+        elif department == "operations":
+            breakdown = snowflake_rows(f"""
+                SELECT COALESCE(region, 'Unassigned') label,
+                       COUNT(*) orders,
+                       COUNT_IF(status = 'SHIPPED') value
+                FROM {SNOWFLAKE_DB}.MARTS.MART_ORDERS
+                GROUP BY 1 ORDER BY orders DESC LIMIT 8
+            """)
+        else:
+            breakdown = snowflake_rows(f"""
+                SELECT status label,
+                       COUNT(*) orders,
+                       COALESCE(ROUND(SUM(amount), 2), 0) value
+                FROM {SNOWFLAKE_DB}.MARTS.MART_ORDERS
+                GROUP BY 1 ORDER BY orders DESC
+            """)
+
+        rows = snowflake_rows(f"""
+            SELECT order_id, customer_id, full_name, email, country,
+                   amount, status, updated_at, event_id, channel, region, source_type
+            FROM {SNOWFLAKE_DB}.MARTS.MART_ORDERS
+            ORDER BY updated_at DESC
+            LIMIT {limit}
+        """)
+        for row in rows:
+            row["email"] = mask_email(row.get("email"))
+
+        return {
+            "department": department,
+            "summary": summary,
+            "breakdown": breakdown,
+            "rows": rows,
+            "source": f"{SNOWFLAKE_DB}.MARTS.MART_ORDERS",
+        }
+    except Exception as exc:
+        raise HTTPException(status_code=503, detail=f"Snowflake marts unavailable: {exc}")
 
 
 @app.get("/v1/orders")
