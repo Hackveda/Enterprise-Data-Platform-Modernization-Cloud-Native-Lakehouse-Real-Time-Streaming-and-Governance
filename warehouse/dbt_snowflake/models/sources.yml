@@ -7,6 +7,7 @@ sources:
     tables:
       - name: raw_customers
       - name: raw_orders
+      - name: raw_order_events
 
 models:
   - name: stg_customers
@@ -19,9 +20,21 @@ models:
         tests: [not_null, unique]
       - name: customer_id
         tests: [not_null]
+  - name: stg_order_events
+    columns:
+      - name: event_id
+        tests: [not_null, unique]
+      - name: order_id
+        tests: [not_null]
+      - name: customer_id
+        tests: [not_null]
   - name: mart_orders
     columns:
       - name: order_id
         tests: [not_null, unique]
       - name: customer_id
         tests: [not_null]
+  - name: mart_order_events
+    columns:
+      - name: event_id
+        tests: [not_null, unique]
