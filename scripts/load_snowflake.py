@@ -37,10 +37,6 @@ def normalize_customers(df: pd.DataFrame) -> pd.DataFrame:
         )
 
     df["SOURCE_FILE"] = str(customers_file)
-
-    # Do not send source-only columns such as CREATED_AT to Snowflake unless the
-    # RAW table explicitly contains them. This prevents write_pandas from
-    # generating INSERT statements with invalid identifiers.
     return df[["CUSTOMER_ID", "FULL_NAME", "EMAIL", "COUNTRY", "SOURCE_FILE"]]
 
 
@@ -66,10 +62,16 @@ def normalize_orders(df: pd.DataFrame) -> pd.DataFrame:
                 "orders.parquet must contain UPDATED_AT or CREATED_AT"
             )
 
+    # Normalize every source timestamp to a real UTC pandas datetime. This is
+    # important because Arrow/Parquet timezone metadata from PostgreSQL can
+    # otherwise be interpreted by Snowflake as an invalid timezone offset.
+    df["UPDATED_AT"] = pd.to_datetime(df["UPDATED_AT"], errors="coerce", utc=True)
+    if df["UPDATED_AT"].isna().any():
+        bad_rows = int(df["UPDATED_AT"].isna().sum())
+        raise RuntimeError(f"orders.parquet contains {bad_rows} invalid timestamps")
+
     df["SOURCE_FILE"] = str(orders_file)
 
-    # Keep the dataframe aligned exactly with RAW_ORDERS. Snowflake supplies
-    # LOADED_AT from the table default.
     return df[
         [
             "ORDER_ID",
@@ -111,6 +113,7 @@ try:
         database=DB,
         schema="RAW",
         quote_identifiers=False,
+        use_logical_type=True,
     )
     ok2, chunks2, rows2, _ = write_pandas(
         conn,
@@ -119,6 +122,7 @@ try:
         database=DB,
         schema="RAW",
         quote_identifiers=False,
+        use_logical_type=True,
     )
 
     if not ok1 or not ok2:
