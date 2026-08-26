@@ -1,0 +1,14 @@
+
+  create or replace   view ENTERPRISE_PLATFORM.STAGING.stg_customers
+  
+   as (
+    select
+    customer_id::number as customer_id,
+    trim(full_name)::varchar as full_name,
+    lower(trim(email))::varchar as email,
+    trim(country)::varchar as country,
+    source_file,
+    loaded_at
+from ENTERPRISE_PLATFORM.RAW.raw_customers
+  );
+
