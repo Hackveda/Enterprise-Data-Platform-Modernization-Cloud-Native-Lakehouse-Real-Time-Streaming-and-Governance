@@ -2158,3 +2158,1634 @@ having count(*) > 1
 [0m14:42:42.997314 [debug] [MainThread]: Command `dbt test` succeeded at 14:42:42.997198 after 8.12 seconds
 [0m14:42:42.997766 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7206cea24ce0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7206b93fe1b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7206cf948920>]}
 [0m14:42:42.998218 [debug] [MainThread]: Flushing usage events
+[0m15:14:37.286239 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7512e3089880>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7512e211c680>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7512e4fda8d0>]}
+
+
+============================== 15:14:37.290013 | 3b220a99-8217-46dd-82d6-df8714850c7b ==============================
+[0m15:14:37.290013 [info ] [MainThread]: Running with dbt=1.8.7
+[0m15:14:37.290725 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'version_check': 'True', 'log_path': 'warehouse/dbt_snowflake/logs', 'profiles_dir': 'warehouse/dbt_snowflake', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'log_format': 'default', 'introspect': 'True', 'invocation_command': 'dbt run --project-dir warehouse/dbt_snowflake --profiles-dir warehouse/dbt_snowflake --full-refresh', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m15:14:38.199876 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '3b220a99-8217-46dd-82d6-df8714850c7b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7512d966d310>]}
+[0m15:14:38.265199 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '3b220a99-8217-46dd-82d6-df8714850c7b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7512d11f8530>]}
+[0m15:14:38.266135 [info ] [MainThread]: Registered adapter: snowflake=1.8.4
+[0m15:14:38.396600 [debug] [MainThread]: checksum: 4af21dafb485259c48497ac86b711ddb1982f3d0f1c0ca4e09356de488b753c0, vars: {}, profile: , target: , version: 1.8.7
+[0m15:14:38.624287 [info ] [MainThread]: Unable to do partial parsing because a project config has changed
+[0m15:14:38.624950 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '3b220a99-8217-46dd-82d6-df8714850c7b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7512d0c87a40>]}
+[0m15:14:39.724485 [warn ] [MainThread]: [[33mWARNING[0m]: Deprecated functionality
+The `tests` config has been renamed to `data_tests`. Please see
+https://docs.getdbt.com/docs/build/data-tests#new-data_tests-syntax for more
+information.
+[0m15:14:39.725141 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '3b220a99-8217-46dd-82d6-df8714850c7b', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7512d0b1bbc0>]}
+[0m15:14:40.137806 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '3b220a99-8217-46dd-82d6-df8714850c7b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7512d0bb3d10>]}
+[0m15:14:40.249580 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '3b220a99-8217-46dd-82d6-df8714850c7b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7512d03eacf0>]}
+[0m15:14:40.250156 [info ] [MainThread]: Found 5 models, 14 data tests, 3 sources, 460 macros
+[0m15:14:40.250685 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '3b220a99-8217-46dd-82d6-df8714850c7b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7512d13c36b0>]}
+[0m15:14:40.253177 [info ] [MainThread]: 
+[0m15:14:40.253910 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m15:14:40.259345 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_ENTERPRISE_PLATFORM'
+[0m15:14:40.265401 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_ENTERPRISE_PLATFORM'
+[0m15:14:40.276965 [debug] [ThreadPool]: Using snowflake connection "list_ENTERPRISE_PLATFORM"
+[0m15:14:40.279479 [debug] [ThreadPool]: Using snowflake connection "list_ENTERPRISE_PLATFORM"
+[0m15:14:40.280025 [debug] [ThreadPool]: On list_ENTERPRISE_PLATFORM: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "connection_name": "list_ENTERPRISE_PLATFORM"} */
+show terse schemas in database ENTERPRISE_PLATFORM
+    limit 10000
+[0m15:14:40.280504 [debug] [ThreadPool]: On list_ENTERPRISE_PLATFORM: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "connection_name": "list_ENTERPRISE_PLATFORM"} */
+show terse schemas in database ENTERPRISE_PLATFORM
+    limit 10000
+[0m15:14:40.280920 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m15:14:40.281308 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m15:14:42.085031 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 1.804 seconds
+[0m15:14:42.087079 [debug] [ThreadPool]: On list_ENTERPRISE_PLATFORM: Close
+[0m15:14:42.090686 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 1.810 seconds
+[0m15:14:42.092622 [debug] [ThreadPool]: On list_ENTERPRISE_PLATFORM: Close
+[0m15:14:42.635103 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_ENTERPRISE_PLATFORM, now list_ENTERPRISE_PLATFORM_STAGING)
+[0m15:14:42.636034 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_ENTERPRISE_PLATFORM, now list_ENTERPRISE_PLATFORM_MARTS)
+[0m15:14:42.649374 [debug] [ThreadPool]: Using snowflake connection "list_ENTERPRISE_PLATFORM_STAGING"
+[0m15:14:42.652068 [debug] [ThreadPool]: Using snowflake connection "list_ENTERPRISE_PLATFORM_MARTS"
+[0m15:14:42.652654 [debug] [ThreadPool]: On list_ENTERPRISE_PLATFORM_STAGING: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "connection_name": "list_ENTERPRISE_PLATFORM_STAGING"} */
+show objects in ENTERPRISE_PLATFORM.STAGING limit 10000
+[0m15:14:42.653145 [debug] [ThreadPool]: On list_ENTERPRISE_PLATFORM_MARTS: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "connection_name": "list_ENTERPRISE_PLATFORM_MARTS"} */
+show objects in ENTERPRISE_PLATFORM.MARTS limit 10000
+[0m15:14:42.653621 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m15:14:42.654033 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m15:14:44.077294 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 1.423 seconds
+[0m15:14:44.079618 [debug] [ThreadPool]: On list_ENTERPRISE_PLATFORM_MARTS: Close
+[0m15:14:44.137578 [debug] [ThreadPool]: SQL status: SUCCESS 2 in 1.484 seconds
+[0m15:14:44.139868 [debug] [ThreadPool]: On list_ENTERPRISE_PLATFORM_STAGING: Close
+[0m15:14:44.674425 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '3b220a99-8217-46dd-82d6-df8714850c7b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7512d0d47e00>]}
+[0m15:14:44.675309 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m15:14:44.675843 [info ] [MainThread]: 
+[0m15:14:44.678011 [debug] [Thread-1 (]: Began running node model.enterprise_platform_snowflake.stg_customers
+[0m15:14:44.678640 [debug] [Thread-2 (]: Began running node model.enterprise_platform_snowflake.stg_order_events
+[0m15:14:44.679191 [debug] [Thread-3 (]: Began running node model.enterprise_platform_snowflake.stg_orders
+[0m15:14:44.679846 [info ] [Thread-1 (]: 1 of 5 START sql view model STAGING.stg_customers .............................. [RUN]
+[0m15:14:44.680610 [info ] [Thread-2 (]: 2 of 5 START sql view model STAGING.stg_order_events ........................... [RUN]
+[0m15:14:44.681309 [info ] [Thread-3 (]: 3 of 5 START sql view model STAGING.stg_orders ................................. [RUN]
+[0m15:14:44.681980 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_ENTERPRISE_PLATFORM_STAGING, now model.enterprise_platform_snowflake.stg_customers)
+[0m15:14:44.682543 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_ENTERPRISE_PLATFORM_MARTS, now model.enterprise_platform_snowflake.stg_order_events)
+[0m15:14:44.683264 [debug] [Thread-3 (]: Acquiring new snowflake connection 'model.enterprise_platform_snowflake.stg_orders'
+[0m15:14:44.683784 [debug] [Thread-1 (]: Began compiling node model.enterprise_platform_snowflake.stg_customers
+[0m15:14:44.684247 [debug] [Thread-2 (]: Began compiling node model.enterprise_platform_snowflake.stg_order_events
+[0m15:14:44.684723 [debug] [Thread-3 (]: Began compiling node model.enterprise_platform_snowflake.stg_orders
+[0m15:14:44.694173 [debug] [Thread-1 (]: Writing injected SQL for node "model.enterprise_platform_snowflake.stg_customers"
+[0m15:14:44.697576 [debug] [Thread-2 (]: Writing injected SQL for node "model.enterprise_platform_snowflake.stg_order_events"
+[0m15:14:44.700921 [debug] [Thread-3 (]: Writing injected SQL for node "model.enterprise_platform_snowflake.stg_orders"
+[0m15:14:44.701906 [debug] [Thread-2 (]: Began executing node model.enterprise_platform_snowflake.stg_order_events
+[0m15:14:44.702484 [debug] [Thread-1 (]: Began executing node model.enterprise_platform_snowflake.stg_customers
+[0m15:14:44.753716 [debug] [Thread-2 (]: Writing runtime sql for node "model.enterprise_platform_snowflake.stg_order_events"
+[0m15:14:44.758047 [debug] [Thread-1 (]: Writing runtime sql for node "model.enterprise_platform_snowflake.stg_customers"
+[0m15:14:44.758933 [debug] [Thread-3 (]: Began executing node model.enterprise_platform_snowflake.stg_orders
+[0m15:14:44.762258 [debug] [Thread-3 (]: Writing runtime sql for node "model.enterprise_platform_snowflake.stg_orders"
+[0m15:14:44.764144 [debug] [Thread-2 (]: Using snowflake connection "model.enterprise_platform_snowflake.stg_order_events"
+[0m15:14:44.764792 [debug] [Thread-2 (]: On model.enterprise_platform_snowflake.stg_order_events: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "model.enterprise_platform_snowflake.stg_order_events"} */
+create or replace   view ENTERPRISE_PLATFORM.STAGING.stg_order_events
+  
+   as (
+    with ranked as (
+    select
+        event_id::varchar as event_id,
+        event_type::varchar as event_type,
+        event_ts::timestamp_tz as event_ts,
+        order_id::number as order_id,
+        customer_id::number as customer_id,
+        amount::number(18,2) as amount,
+        upper(trim(status))::varchar as status,
+        channel::varchar as channel,
+        region::varchar as region,
+        schema_version::number as schema_version,
+        raw_payload,
+        loaded_at,
+        row_number() over (
+            partition by event_id
+            order by loaded_at desc
+        ) as rn
+    from ENTERPRISE_PLATFORM.RAW.raw_order_events
+)
+select
+    event_id,
+    event_type,
+    event_ts,
+    order_id,
+    customer_id,
+    amount,
+    status,
+    channel,
+    region,
+    schema_version,
+    raw_payload,
+    loaded_at
+from ranked
+where rn = 1
+  );
+[0m15:14:44.765396 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m15:14:44.783429 [debug] [Thread-1 (]: Using snowflake connection "model.enterprise_platform_snowflake.stg_customers"
+[0m15:14:44.784640 [debug] [Thread-3 (]: Using snowflake connection "model.enterprise_platform_snowflake.stg_orders"
+[0m15:14:44.787224 [debug] [Thread-3 (]: On model.enterprise_platform_snowflake.stg_orders: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "model.enterprise_platform_snowflake.stg_orders"} */
+create or replace   view ENTERPRISE_PLATFORM.STAGING.stg_orders
+  
+   as (
+    select
+    order_id::number as order_id,
+    customer_id::number as customer_id,
+    amount::number(18,2) as amount,
+    upper(trim(status))::varchar as status,
+    updated_at::timestamp_tz as updated_at,
+    source_file,
+    loaded_at
+from ENTERPRISE_PLATFORM.RAW.raw_orders
+  );
+[0m15:14:44.785620 [debug] [Thread-1 (]: On model.enterprise_platform_snowflake.stg_customers: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "model.enterprise_platform_snowflake.stg_customers"} */
+create or replace   view ENTERPRISE_PLATFORM.STAGING.stg_customers
+  
+   as (
+    select
+    customer_id::number as customer_id,
+    trim(full_name)::varchar as full_name,
+    lower(trim(email))::varchar as email,
+    trim(country)::varchar as country,
+    source_file,
+    loaded_at
+from ENTERPRISE_PLATFORM.RAW.raw_customers
+  );
+[0m15:14:44.787863 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m15:14:44.789089 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m15:14:46.065723 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 1.278 seconds
+[0m15:14:46.094069 [debug] [Thread-3 (]: On model.enterprise_platform_snowflake.stg_orders: Close
+[0m15:14:46.107580 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 1.342 seconds
+[0m15:14:46.109914 [debug] [Thread-2 (]: On model.enterprise_platform_snowflake.stg_order_events: Close
+[0m15:14:46.403440 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 1.614 seconds
+[0m15:14:46.405939 [debug] [Thread-1 (]: On model.enterprise_platform_snowflake.stg_customers: Close
+[0m15:14:46.588676 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '3b220a99-8217-46dd-82d6-df8714850c7b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7512c129dca0>]}
+[0m15:14:46.589570 [info ] [Thread-3 (]: 3 of 5 OK created sql view model STAGING.stg_orders ............................ [[32mSUCCESS 1[0m in 1.90s]
+[0m15:14:46.590418 [debug] [Thread-3 (]: Finished running node model.enterprise_platform_snowflake.stg_orders
+[0m15:14:46.629134 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '3b220a99-8217-46dd-82d6-df8714850c7b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7512c129ca40>]}
+[0m15:14:46.630046 [info ] [Thread-2 (]: 2 of 5 OK created sql view model STAGING.stg_order_events ...................... [[32mSUCCESS 1[0m in 1.95s]
+[0m15:14:46.630847 [debug] [Thread-2 (]: Finished running node model.enterprise_platform_snowflake.stg_order_events
+[0m15:14:46.631607 [debug] [Thread-4 (]: Began running node model.enterprise_platform_snowflake.mart_order_events
+[0m15:14:46.632234 [info ] [Thread-4 (]: 4 of 5 START sql view model MARTS.mart_order_events ............................ [RUN]
+[0m15:14:46.632964 [debug] [Thread-4 (]: Acquiring new snowflake connection 'model.enterprise_platform_snowflake.mart_order_events'
+[0m15:14:46.633460 [debug] [Thread-4 (]: Began compiling node model.enterprise_platform_snowflake.mart_order_events
+[0m15:14:46.636997 [debug] [Thread-4 (]: Writing injected SQL for node "model.enterprise_platform_snowflake.mart_order_events"
+[0m15:14:46.637643 [debug] [Thread-4 (]: Began executing node model.enterprise_platform_snowflake.mart_order_events
+[0m15:14:46.640600 [debug] [Thread-4 (]: Writing runtime sql for node "model.enterprise_platform_snowflake.mart_order_events"
+[0m15:14:46.641668 [debug] [Thread-4 (]: Using snowflake connection "model.enterprise_platform_snowflake.mart_order_events"
+[0m15:14:46.642115 [debug] [Thread-4 (]: On model.enterprise_platform_snowflake.mart_order_events: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "model.enterprise_platform_snowflake.mart_order_events"} */
+create or replace   view ENTERPRISE_PLATFORM.MARTS.mart_order_events
+  
+   as (
+    select
+    event_id,
+    event_type,
+    event_ts,
+    order_id,
+    customer_id,
+    amount,
+    status,
+    channel,
+    region,
+    schema_version,
+    loaded_at
+from ENTERPRISE_PLATFORM.STAGING.stg_order_events
+  );
+[0m15:14:46.642554 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m15:14:46.957532 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '3b220a99-8217-46dd-82d6-df8714850c7b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7512d101eed0>]}
+[0m15:14:46.958496 [info ] [Thread-1 (]: 1 of 5 OK created sql view model STAGING.stg_customers ......................... [[32mSUCCESS 1[0m in 2.28s]
+[0m15:14:46.959394 [debug] [Thread-1 (]: Finished running node model.enterprise_platform_snowflake.stg_customers
+[0m15:14:46.960157 [debug] [Thread-2 (]: Began running node model.enterprise_platform_snowflake.mart_orders
+[0m15:14:46.960818 [info ] [Thread-2 (]: 5 of 5 START sql view model MARTS.mart_orders .................................. [RUN]
+[0m15:14:46.961473 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.enterprise_platform_snowflake.stg_order_events, now model.enterprise_platform_snowflake.mart_orders)
+[0m15:14:46.961931 [debug] [Thread-2 (]: Began compiling node model.enterprise_platform_snowflake.mart_orders
+[0m15:14:46.965731 [debug] [Thread-2 (]: Writing injected SQL for node "model.enterprise_platform_snowflake.mart_orders"
+[0m15:14:46.966693 [debug] [Thread-2 (]: Began executing node model.enterprise_platform_snowflake.mart_orders
+[0m15:14:46.976594 [debug] [Thread-2 (]: Dropping relation "ENTERPRISE_PLATFORM"."MARTS"."MART_ORDERS" because it is of type table
+[0m15:14:47.117418 [debug] [Thread-2 (]: Applying DROP to: "ENTERPRISE_PLATFORM"."MARTS"."MART_ORDERS"
+[0m15:14:47.126491 [debug] [Thread-2 (]: Using snowflake connection "model.enterprise_platform_snowflake.mart_orders"
+[0m15:14:47.127074 [debug] [Thread-2 (]: On model.enterprise_platform_snowflake.mart_orders: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "model.enterprise_platform_snowflake.mart_orders"} */
+drop table if exists "ENTERPRISE_PLATFORM"."MARTS"."MART_ORDERS" cascade
+[0m15:14:47.127536 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m15:14:48.046239 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 1.404 seconds
+[0m15:14:48.048766 [debug] [Thread-4 (]: On model.enterprise_platform_snowflake.mart_order_events: Close
+[0m15:14:48.467825 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 1.340 seconds
+[0m15:14:48.469728 [debug] [Thread-2 (]: Writing runtime sql for node "model.enterprise_platform_snowflake.mart_orders"
+[0m15:14:48.471886 [debug] [Thread-2 (]: Using snowflake connection "model.enterprise_platform_snowflake.mart_orders"
+[0m15:14:48.472474 [debug] [Thread-2 (]: On model.enterprise_platform_snowflake.mart_orders: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "model.enterprise_platform_snowflake.mart_orders"} */
+create or replace   view ENTERPRISE_PLATFORM.MARTS.mart_orders
+  
+   as (
+    with batch_orders as (
+    select
+        order_id,
+        customer_id,
+        amount,
+        status,
+        updated_at,
+        null::varchar as event_id,
+        null::varchar as channel,
+        null::varchar as region,
+        'BATCH'::varchar as source_type
+    from ENTERPRISE_PLATFORM.STAGING.stg_orders
+),
+stream_orders as (
+    select
+        order_id,
+        customer_id,
+        amount,
+        status,
+        event_ts as updated_at,
+        event_id,
+        channel,
+        region,
+        'EVENT'::varchar as source_type
+    from ENTERPRISE_PLATFORM.STAGING.stg_order_events
+),
+all_versions as (
+    select * from batch_orders
+    union all
+    select * from stream_orders
+),
+latest_order as (
+    select *
+    from all_versions
+    qualify row_number() over (
+        partition by order_id
+        order by updated_at desc, source_type desc
+    ) = 1
+)
+select
+    o.order_id,
+    o.customer_id,
+    c.full_name,
+    c.email,
+    c.country,
+    o.amount,
+    o.status,
+    o.updated_at,
+    o.event_id,
+    o.channel,
+    o.region,
+    o.source_type
+from latest_order o
+left join ENTERPRISE_PLATFORM.STAGING.stg_customers c
+  on o.customer_id = c.customer_id
+  );
+[0m15:14:48.566634 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '3b220a99-8217-46dd-82d6-df8714850c7b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7512c12f8950>]}
+[0m15:14:48.567681 [info ] [Thread-4 (]: 4 of 5 OK created sql view model MARTS.mart_order_events ....................... [[32mSUCCESS 1[0m in 1.93s]
+[0m15:14:48.568510 [debug] [Thread-4 (]: Finished running node model.enterprise_platform_snowflake.mart_order_events
+[0m15:14:48.936431 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.463 seconds
+[0m15:14:48.938942 [debug] [Thread-2 (]: On model.enterprise_platform_snowflake.mart_orders: Close
+[0m15:14:49.450764 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '3b220a99-8217-46dd-82d6-df8714850c7b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7512c12fda90>]}
+[0m15:14:49.451794 [info ] [Thread-2 (]: 5 of 5 OK created sql view model MARTS.mart_orders ............................. [[32mSUCCESS 1[0m in 2.49s]
+[0m15:14:49.452638 [debug] [Thread-2 (]: Finished running node model.enterprise_platform_snowflake.mart_orders
+[0m15:14:49.455094 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m15:14:49.455727 [debug] [MainThread]: Connection 'model.enterprise_platform_snowflake.mart_orders' was properly closed.
+[0m15:14:49.456085 [debug] [MainThread]: Connection 'model.enterprise_platform_snowflake.stg_customers' was properly closed.
+[0m15:14:49.456960 [debug] [MainThread]: Connection 'model.enterprise_platform_snowflake.stg_orders' was properly closed.
+[0m15:14:49.457295 [debug] [MainThread]: Connection 'model.enterprise_platform_snowflake.mart_order_events' was properly closed.
+[0m15:14:49.457842 [info ] [MainThread]: 
+[0m15:14:49.458361 [info ] [MainThread]: Finished running 5 view models in 0 hours 0 minutes and 9.20 seconds (9.20s).
+[0m15:14:49.459903 [debug] [MainThread]: Command end result
+[0m15:14:49.495464 [info ] [MainThread]: 
+[0m15:14:49.496086 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m15:14:49.496579 [info ] [MainThread]: 
+[0m15:14:49.497023 [info ] [MainThread]: Done. PASS=5 WARN=0 ERROR=0 SKIP=0 TOTAL=5
+[0m15:14:49.498051 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 12.274194, "process_user_time": 5.796075, "process_kernel_time": 0.542509, "process_mem_max_rss": "242256", "process_in_blocks": "24", "process_out_blocks": "3176"}
+[0m15:14:49.498623 [debug] [MainThread]: Command `dbt run` succeeded at 15:14:49.498500 after 12.27 seconds
+[0m15:14:49.499062 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7512e25b4320>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7512e25b7cb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7512c1c4a510>]}
+[0m15:14:49.499510 [debug] [MainThread]: Flushing usage events
+[0m15:15:03.188679 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71b99c7e7dd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71b99d52aa20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71b99d871b50>]}
+
+
+============================== 15:15:03.192796 | ed90abb9-1130-4a2e-8222-5af2645dc3b2 ==============================
+[0m15:15:03.192796 [info ] [MainThread]: Running with dbt=1.8.7
+[0m15:15:03.193539 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'debug': 'False', 'log_path': 'warehouse/dbt_snowflake/logs', 'fail_fast': 'False', 'profiles_dir': 'warehouse/dbt_snowflake', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'target_path': 'None', 'invocation_command': 'dbt test --project-dir warehouse/dbt_snowflake --profiles-dir warehouse/dbt_snowflake', 'send_anonymous_usage_stats': 'True'}
+[0m15:15:04.124943 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'ed90abb9-1130-4a2e-8222-5af2645dc3b2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71b99c3a1700>]}
+[0m15:15:04.190801 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'ed90abb9-1130-4a2e-8222-5af2645dc3b2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71b98c2d3530>]}
+[0m15:15:04.191736 [info ] [MainThread]: Registered adapter: snowflake=1.8.4
+[0m15:15:04.319983 [debug] [MainThread]: checksum: 4af21dafb485259c48497ac86b711ddb1982f3d0f1c0ca4e09356de488b753c0, vars: {}, profile: , target: , version: 1.8.7
+[0m15:15:04.566565 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m15:15:04.567064 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m15:15:04.617607 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'ed90abb9-1130-4a2e-8222-5af2645dc3b2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71b98c136870>]}
+[0m15:15:04.745962 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'ed90abb9-1130-4a2e-8222-5af2645dc3b2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71b9872d7e90>]}
+[0m15:15:04.746639 [info ] [MainThread]: Found 5 models, 14 data tests, 3 sources, 460 macros
+[0m15:15:04.747193 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'ed90abb9-1130-4a2e-8222-5af2645dc3b2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71b99c8afc50>]}
+[0m15:15:04.750108 [info ] [MainThread]: 
+[0m15:15:04.750882 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m15:15:04.756511 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_ENTERPRISE_PLATFORM_STAGING'
+[0m15:15:04.759093 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_ENTERPRISE_PLATFORM_MARTS'
+[0m15:15:04.779941 [debug] [ThreadPool]: Using snowflake connection "list_ENTERPRISE_PLATFORM_STAGING"
+[0m15:15:04.782590 [debug] [ThreadPool]: Using snowflake connection "list_ENTERPRISE_PLATFORM_MARTS"
+[0m15:15:04.783247 [debug] [ThreadPool]: On list_ENTERPRISE_PLATFORM_STAGING: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "connection_name": "list_ENTERPRISE_PLATFORM_STAGING"} */
+show objects in ENTERPRISE_PLATFORM.STAGING limit 10000
+[0m15:15:04.783735 [debug] [ThreadPool]: On list_ENTERPRISE_PLATFORM_MARTS: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "connection_name": "list_ENTERPRISE_PLATFORM_MARTS"} */
+show objects in ENTERPRISE_PLATFORM.MARTS limit 10000
+[0m15:15:04.784154 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m15:15:04.784619 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m15:15:06.722630 [debug] [ThreadPool]: SQL status: SUCCESS 3 in 1.938 seconds
+[0m15:15:06.725405 [debug] [ThreadPool]: On list_ENTERPRISE_PLATFORM_STAGING: Close
+[0m15:15:07.208950 [debug] [ThreadPool]: SQL status: SUCCESS 2 in 2.424 seconds
+[0m15:15:07.211131 [debug] [ThreadPool]: On list_ENTERPRISE_PLATFORM_MARTS: Close
+[0m15:15:07.741168 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'ed90abb9-1130-4a2e-8222-5af2645dc3b2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71b99c88f890>]}
+[0m15:15:07.742181 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m15:15:07.742756 [info ] [MainThread]: 
+[0m15:15:07.745271 [debug] [Thread-1 (]: Began running node test.enterprise_platform_snowflake.not_null_mart_order_events_event_id.06780a96f5
+[0m15:15:07.745949 [debug] [Thread-2 (]: Began running node test.enterprise_platform_snowflake.not_null_mart_orders_customer_id.99d120870c
+[0m15:15:07.746438 [debug] [Thread-3 (]: Began running node test.enterprise_platform_snowflake.not_null_mart_orders_order_id.a21e3c5d25
+[0m15:15:07.747479 [debug] [Thread-4 (]: Began running node test.enterprise_platform_snowflake.not_null_stg_customers_customer_id.e2cfb1f9aa
+[0m15:15:07.747986 [info ] [Thread-1 (]: 1 of 14 START test not_null_mart_order_events_event_id ......................... [RUN]
+[0m15:15:07.748629 [info ] [Thread-2 (]: 2 of 14 START test not_null_mart_orders_customer_id ............................ [RUN]
+[0m15:15:07.749211 [info ] [Thread-3 (]: 3 of 14 START test not_null_mart_orders_order_id ............................... [RUN]
+[0m15:15:07.749811 [info ] [Thread-4 (]: 4 of 14 START test not_null_stg_customers_customer_id .......................... [RUN]
+[0m15:15:07.750492 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_ENTERPRISE_PLATFORM_MARTS, now test.enterprise_platform_snowflake.not_null_mart_order_events_event_id.06780a96f5)
+[0m15:15:07.751184 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_ENTERPRISE_PLATFORM_STAGING, now test.enterprise_platform_snowflake.not_null_mart_orders_customer_id.99d120870c)
+[0m15:15:07.751835 [debug] [Thread-3 (]: Acquiring new snowflake connection 'test.enterprise_platform_snowflake.not_null_mart_orders_order_id.a21e3c5d25'
+[0m15:15:07.752499 [debug] [Thread-4 (]: Acquiring new snowflake connection 'test.enterprise_platform_snowflake.not_null_stg_customers_customer_id.e2cfb1f9aa'
+[0m15:15:07.752988 [debug] [Thread-1 (]: Began compiling node test.enterprise_platform_snowflake.not_null_mart_order_events_event_id.06780a96f5
+[0m15:15:07.753476 [debug] [Thread-2 (]: Began compiling node test.enterprise_platform_snowflake.not_null_mart_orders_customer_id.99d120870c
+[0m15:15:07.753935 [debug] [Thread-3 (]: Began compiling node test.enterprise_platform_snowflake.not_null_mart_orders_order_id.a21e3c5d25
+[0m15:15:07.754411 [debug] [Thread-4 (]: Began compiling node test.enterprise_platform_snowflake.not_null_stg_customers_customer_id.e2cfb1f9aa
+[0m15:15:07.774339 [debug] [Thread-1 (]: Writing injected SQL for node "test.enterprise_platform_snowflake.not_null_mart_order_events_event_id.06780a96f5"
+[0m15:15:07.781462 [debug] [Thread-2 (]: Writing injected SQL for node "test.enterprise_platform_snowflake.not_null_mart_orders_customer_id.99d120870c"
+[0m15:15:07.785958 [debug] [Thread-3 (]: Writing injected SQL for node "test.enterprise_platform_snowflake.not_null_mart_orders_order_id.a21e3c5d25"
+[0m15:15:07.790512 [debug] [Thread-4 (]: Writing injected SQL for node "test.enterprise_platform_snowflake.not_null_stg_customers_customer_id.e2cfb1f9aa"
+[0m15:15:07.791662 [debug] [Thread-1 (]: Began executing node test.enterprise_platform_snowflake.not_null_mart_order_events_event_id.06780a96f5
+[0m15:15:07.792305 [debug] [Thread-2 (]: Began executing node test.enterprise_platform_snowflake.not_null_mart_orders_customer_id.99d120870c
+[0m15:15:07.793103 [debug] [Thread-3 (]: Began executing node test.enterprise_platform_snowflake.not_null_mart_orders_order_id.a21e3c5d25
+[0m15:15:07.793570 [debug] [Thread-4 (]: Began executing node test.enterprise_platform_snowflake.not_null_stg_customers_customer_id.e2cfb1f9aa
+[0m15:15:07.822465 [debug] [Thread-1 (]: Writing runtime sql for node "test.enterprise_platform_snowflake.not_null_mart_order_events_event_id.06780a96f5"
+[0m15:15:07.824203 [debug] [Thread-2 (]: Writing runtime sql for node "test.enterprise_platform_snowflake.not_null_mart_orders_customer_id.99d120870c"
+[0m15:15:07.827288 [debug] [Thread-3 (]: Writing runtime sql for node "test.enterprise_platform_snowflake.not_null_mart_orders_order_id.a21e3c5d25"
+[0m15:15:07.829995 [debug] [Thread-4 (]: Writing runtime sql for node "test.enterprise_platform_snowflake.not_null_stg_customers_customer_id.e2cfb1f9aa"
+[0m15:15:07.831385 [debug] [Thread-1 (]: Using snowflake connection "test.enterprise_platform_snowflake.not_null_mart_order_events_event_id.06780a96f5"
+[0m15:15:07.832252 [debug] [Thread-2 (]: Using snowflake connection "test.enterprise_platform_snowflake.not_null_mart_orders_customer_id.99d120870c"
+[0m15:15:07.833651 [debug] [Thread-4 (]: Using snowflake connection "test.enterprise_platform_snowflake.not_null_stg_customers_customer_id.e2cfb1f9aa"
+[0m15:15:07.834542 [debug] [Thread-3 (]: Using snowflake connection "test.enterprise_platform_snowflake.not_null_mart_orders_order_id.a21e3c5d25"
+[0m15:15:07.835132 [debug] [Thread-1 (]: On test.enterprise_platform_snowflake.not_null_mart_order_events_event_id.06780a96f5: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "test.enterprise_platform_snowflake.not_null_mart_order_events_event_id.06780a96f5"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select event_id
+from ENTERPRISE_PLATFORM.MARTS.mart_order_events
+where event_id is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:15:07.835727 [debug] [Thread-2 (]: On test.enterprise_platform_snowflake.not_null_mart_orders_customer_id.99d120870c: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "test.enterprise_platform_snowflake.not_null_mart_orders_customer_id.99d120870c"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select customer_id
+from ENTERPRISE_PLATFORM.MARTS.mart_orders
+where customer_id is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:15:07.836237 [debug] [Thread-4 (]: On test.enterprise_platform_snowflake.not_null_stg_customers_customer_id.e2cfb1f9aa: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "test.enterprise_platform_snowflake.not_null_stg_customers_customer_id.e2cfb1f9aa"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select customer_id
+from ENTERPRISE_PLATFORM.STAGING.stg_customers
+where customer_id is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:15:07.836772 [debug] [Thread-3 (]: On test.enterprise_platform_snowflake.not_null_mart_orders_order_id.a21e3c5d25: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "test.enterprise_platform_snowflake.not_null_mart_orders_order_id.a21e3c5d25"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select order_id
+from ENTERPRISE_PLATFORM.MARTS.mart_orders
+where order_id is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:15:07.837437 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m15:15:07.837898 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m15:15:07.838392 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m15:15:07.838968 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m15:15:09.297921 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 1.460 seconds
+[0m15:15:09.308703 [debug] [Thread-2 (]: On test.enterprise_platform_snowflake.not_null_mart_orders_customer_id.99d120870c: Close
+[0m15:15:09.314346 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 1.477 seconds
+[0m15:15:09.316714 [debug] [Thread-1 (]: On test.enterprise_platform_snowflake.not_null_mart_order_events_event_id.06780a96f5: Close
+[0m15:15:09.362170 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 1.524 seconds
+[0m15:15:09.364700 [debug] [Thread-4 (]: On test.enterprise_platform_snowflake.not_null_stg_customers_customer_id.e2cfb1f9aa: Close
+[0m15:15:09.824814 [info ] [Thread-1 (]: 1 of 14 PASS not_null_mart_order_events_event_id ............................... [[32mPASS[0m in 2.07s]
+[0m15:15:09.825784 [debug] [Thread-1 (]: Finished running node test.enterprise_platform_snowflake.not_null_mart_order_events_event_id.06780a96f5
+[0m15:15:09.826375 [debug] [Thread-1 (]: Began running node test.enterprise_platform_snowflake.not_null_stg_order_events_customer_id.46a0e7f729
+[0m15:15:09.827113 [info ] [Thread-1 (]: 5 of 14 START test not_null_stg_order_events_customer_id ....................... [RUN]
+[0m15:15:09.827780 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.enterprise_platform_snowflake.not_null_mart_order_events_event_id.06780a96f5, now test.enterprise_platform_snowflake.not_null_stg_order_events_customer_id.46a0e7f729)
+[0m15:15:09.828248 [debug] [Thread-1 (]: Began compiling node test.enterprise_platform_snowflake.not_null_stg_order_events_customer_id.46a0e7f729
+[0m15:15:09.833935 [debug] [Thread-1 (]: Writing injected SQL for node "test.enterprise_platform_snowflake.not_null_stg_order_events_customer_id.46a0e7f729"
+[0m15:15:09.835539 [debug] [Thread-1 (]: Began executing node test.enterprise_platform_snowflake.not_null_stg_order_events_customer_id.46a0e7f729
+[0m15:15:09.838559 [debug] [Thread-1 (]: Writing runtime sql for node "test.enterprise_platform_snowflake.not_null_stg_order_events_customer_id.46a0e7f729"
+[0m15:15:09.839963 [info ] [Thread-2 (]: 2 of 14 PASS not_null_mart_orders_customer_id .................................. [[32mPASS[0m in 2.09s]
+[0m15:15:09.841037 [debug] [Thread-2 (]: Finished running node test.enterprise_platform_snowflake.not_null_mart_orders_customer_id.99d120870c
+[0m15:15:09.841610 [debug] [Thread-2 (]: Began running node test.enterprise_platform_snowflake.not_null_stg_order_events_event_id.0abfeef2f5
+[0m15:15:09.842583 [debug] [Thread-1 (]: Using snowflake connection "test.enterprise_platform_snowflake.not_null_stg_order_events_customer_id.46a0e7f729"
+[0m15:15:09.843688 [debug] [Thread-1 (]: On test.enterprise_platform_snowflake.not_null_stg_order_events_customer_id.46a0e7f729: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "test.enterprise_platform_snowflake.not_null_stg_order_events_customer_id.46a0e7f729"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select customer_id
+from ENTERPRISE_PLATFORM.STAGING.stg_order_events
+where customer_id is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:15:09.843178 [info ] [Thread-2 (]: 6 of 14 START test not_null_stg_order_events_event_id .......................... [RUN]
+[0m15:15:09.844286 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m15:15:09.844849 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.enterprise_platform_snowflake.not_null_mart_orders_customer_id.99d120870c, now test.enterprise_platform_snowflake.not_null_stg_order_events_event_id.0abfeef2f5)
+[0m15:15:09.846058 [debug] [Thread-2 (]: Began compiling node test.enterprise_platform_snowflake.not_null_stg_order_events_event_id.0abfeef2f5
+[0m15:15:09.862890 [debug] [Thread-2 (]: Writing injected SQL for node "test.enterprise_platform_snowflake.not_null_stg_order_events_event_id.0abfeef2f5"
+[0m15:15:09.876049 [debug] [Thread-2 (]: Began executing node test.enterprise_platform_snowflake.not_null_stg_order_events_event_id.0abfeef2f5
+[0m15:15:09.875275 [info ] [Thread-4 (]: 4 of 14 PASS not_null_stg_customers_customer_id ................................ [[32mPASS[0m in 2.12s]
+[0m15:15:09.880847 [debug] [Thread-2 (]: Writing runtime sql for node "test.enterprise_platform_snowflake.not_null_stg_order_events_event_id.0abfeef2f5"
+[0m15:15:09.888656 [debug] [Thread-4 (]: Finished running node test.enterprise_platform_snowflake.not_null_stg_customers_customer_id.e2cfb1f9aa
+[0m15:15:09.891696 [debug] [Thread-4 (]: Began running node test.enterprise_platform_snowflake.not_null_stg_order_events_order_id.77189e6988
+[0m15:15:09.892791 [debug] [Thread-2 (]: Using snowflake connection "test.enterprise_platform_snowflake.not_null_stg_order_events_event_id.0abfeef2f5"
+[0m15:15:09.893358 [info ] [Thread-4 (]: 7 of 14 START test not_null_stg_order_events_order_id .......................... [RUN]
+[0m15:15:09.896434 [debug] [Thread-2 (]: On test.enterprise_platform_snowflake.not_null_stg_order_events_event_id.0abfeef2f5: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "test.enterprise_platform_snowflake.not_null_stg_order_events_event_id.0abfeef2f5"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select event_id
+from ENTERPRISE_PLATFORM.STAGING.stg_order_events
+where event_id is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:15:09.897205 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.enterprise_platform_snowflake.not_null_stg_customers_customer_id.e2cfb1f9aa, now test.enterprise_platform_snowflake.not_null_stg_order_events_order_id.77189e6988)
+[0m15:15:09.900263 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m15:15:09.900938 [debug] [Thread-4 (]: Began compiling node test.enterprise_platform_snowflake.not_null_stg_order_events_order_id.77189e6988
+[0m15:15:09.913228 [debug] [Thread-4 (]: Writing injected SQL for node "test.enterprise_platform_snowflake.not_null_stg_order_events_order_id.77189e6988"
+[0m15:15:09.929606 [debug] [Thread-4 (]: Began executing node test.enterprise_platform_snowflake.not_null_stg_order_events_order_id.77189e6988
+[0m15:15:09.936386 [debug] [Thread-4 (]: Writing runtime sql for node "test.enterprise_platform_snowflake.not_null_stg_order_events_order_id.77189e6988"
+[0m15:15:09.942792 [debug] [Thread-4 (]: Using snowflake connection "test.enterprise_platform_snowflake.not_null_stg_order_events_order_id.77189e6988"
+[0m15:15:09.946297 [debug] [Thread-4 (]: On test.enterprise_platform_snowflake.not_null_stg_order_events_order_id.77189e6988: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "test.enterprise_platform_snowflake.not_null_stg_order_events_order_id.77189e6988"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select order_id
+from ENTERPRISE_PLATFORM.STAGING.stg_order_events
+where order_id is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:15:09.948279 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m15:15:10.274281 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 2.435 seconds
+[0m15:15:10.276788 [debug] [Thread-3 (]: On test.enterprise_platform_snowflake.not_null_mart_orders_order_id.a21e3c5d25: Close
+[0m15:15:10.821144 [info ] [Thread-3 (]: 3 of 14 PASS not_null_mart_orders_order_id ..................................... [[32mPASS[0m in 3.07s]
+[0m15:15:10.822060 [debug] [Thread-3 (]: Finished running node test.enterprise_platform_snowflake.not_null_mart_orders_order_id.a21e3c5d25
+[0m15:15:10.822742 [debug] [Thread-3 (]: Began running node test.enterprise_platform_snowflake.not_null_stg_orders_customer_id.af79d5e4b5
+[0m15:15:10.823263 [info ] [Thread-3 (]: 8 of 14 START test not_null_stg_orders_customer_id ............................. [RUN]
+[0m15:15:10.823980 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.enterprise_platform_snowflake.not_null_mart_orders_order_id.a21e3c5d25, now test.enterprise_platform_snowflake.not_null_stg_orders_customer_id.af79d5e4b5)
+[0m15:15:10.824440 [debug] [Thread-3 (]: Began compiling node test.enterprise_platform_snowflake.not_null_stg_orders_customer_id.af79d5e4b5
+[0m15:15:10.829215 [debug] [Thread-3 (]: Writing injected SQL for node "test.enterprise_platform_snowflake.not_null_stg_orders_customer_id.af79d5e4b5"
+[0m15:15:10.829909 [debug] [Thread-3 (]: Began executing node test.enterprise_platform_snowflake.not_null_stg_orders_customer_id.af79d5e4b5
+[0m15:15:10.832434 [debug] [Thread-3 (]: Writing runtime sql for node "test.enterprise_platform_snowflake.not_null_stg_orders_customer_id.af79d5e4b5"
+[0m15:15:10.833416 [debug] [Thread-3 (]: Using snowflake connection "test.enterprise_platform_snowflake.not_null_stg_orders_customer_id.af79d5e4b5"
+[0m15:15:10.833860 [debug] [Thread-3 (]: On test.enterprise_platform_snowflake.not_null_stg_orders_customer_id.af79d5e4b5: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "test.enterprise_platform_snowflake.not_null_stg_orders_customer_id.af79d5e4b5"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select customer_id
+from ENTERPRISE_PLATFORM.STAGING.stg_orders
+where customer_id is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:15:10.834376 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m15:15:11.143899 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 1.300 seconds
+[0m15:15:11.146181 [debug] [Thread-1 (]: On test.enterprise_platform_snowflake.not_null_stg_order_events_customer_id.46a0e7f729: Close
+[0m15:15:11.261473 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 1.361 seconds
+[0m15:15:11.263842 [debug] [Thread-2 (]: On test.enterprise_platform_snowflake.not_null_stg_order_events_event_id.0abfeef2f5: Close
+[0m15:15:11.271712 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 1.323 seconds
+[0m15:15:11.273862 [debug] [Thread-4 (]: On test.enterprise_platform_snowflake.not_null_stg_order_events_order_id.77189e6988: Close
+[0m15:15:11.674417 [info ] [Thread-1 (]: 5 of 14 PASS not_null_stg_order_events_customer_id ............................. [[32mPASS[0m in 1.85s]
+[0m15:15:11.675478 [debug] [Thread-1 (]: Finished running node test.enterprise_platform_snowflake.not_null_stg_order_events_customer_id.46a0e7f729
+[0m15:15:11.676054 [debug] [Thread-1 (]: Began running node test.enterprise_platform_snowflake.not_null_stg_orders_order_id.81cfe2fe64
+[0m15:15:11.676652 [info ] [Thread-1 (]: 9 of 14 START test not_null_stg_orders_order_id ................................ [RUN]
+[0m15:15:11.677271 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.enterprise_platform_snowflake.not_null_stg_order_events_customer_id.46a0e7f729, now test.enterprise_platform_snowflake.not_null_stg_orders_order_id.81cfe2fe64)
+[0m15:15:11.677762 [debug] [Thread-1 (]: Began compiling node test.enterprise_platform_snowflake.not_null_stg_orders_order_id.81cfe2fe64
+[0m15:15:11.683271 [debug] [Thread-1 (]: Writing injected SQL for node "test.enterprise_platform_snowflake.not_null_stg_orders_order_id.81cfe2fe64"
+[0m15:15:11.687503 [debug] [Thread-1 (]: Began executing node test.enterprise_platform_snowflake.not_null_stg_orders_order_id.81cfe2fe64
+[0m15:15:11.690345 [debug] [Thread-1 (]: Writing runtime sql for node "test.enterprise_platform_snowflake.not_null_stg_orders_order_id.81cfe2fe64"
+[0m15:15:11.691486 [debug] [Thread-1 (]: Using snowflake connection "test.enterprise_platform_snowflake.not_null_stg_orders_order_id.81cfe2fe64"
+[0m15:15:11.691977 [debug] [Thread-1 (]: On test.enterprise_platform_snowflake.not_null_stg_orders_order_id.81cfe2fe64: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "test.enterprise_platform_snowflake.not_null_stg_orders_order_id.81cfe2fe64"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select order_id
+from ENTERPRISE_PLATFORM.STAGING.stg_orders
+where order_id is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:15:11.692437 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m15:15:11.794144 [info ] [Thread-2 (]: 6 of 14 PASS not_null_stg_order_events_event_id ................................ [[32mPASS[0m in 1.95s]
+[0m15:15:11.795138 [debug] [Thread-2 (]: Finished running node test.enterprise_platform_snowflake.not_null_stg_order_events_event_id.0abfeef2f5
+[0m15:15:11.795790 [debug] [Thread-2 (]: Began running node test.enterprise_platform_snowflake.unique_mart_order_events_event_id.6a2025f6b1
+[0m15:15:11.796376 [info ] [Thread-2 (]: 10 of 14 START test unique_mart_order_events_event_id .......................... [RUN]
+[0m15:15:11.796978 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.enterprise_platform_snowflake.not_null_stg_order_events_event_id.0abfeef2f5, now test.enterprise_platform_snowflake.unique_mart_order_events_event_id.6a2025f6b1)
+[0m15:15:11.797469 [debug] [Thread-2 (]: Began compiling node test.enterprise_platform_snowflake.unique_mart_order_events_event_id.6a2025f6b1
+[0m15:15:11.805180 [debug] [Thread-2 (]: Writing injected SQL for node "test.enterprise_platform_snowflake.unique_mart_order_events_event_id.6a2025f6b1"
+[0m15:15:11.806723 [debug] [Thread-2 (]: Began executing node test.enterprise_platform_snowflake.unique_mart_order_events_event_id.6a2025f6b1
+[0m15:15:11.809551 [debug] [Thread-2 (]: Writing runtime sql for node "test.enterprise_platform_snowflake.unique_mart_order_events_event_id.6a2025f6b1"
+[0m15:15:11.811060 [debug] [Thread-2 (]: Using snowflake connection "test.enterprise_platform_snowflake.unique_mart_order_events_event_id.6a2025f6b1"
+[0m15:15:11.812290 [info ] [Thread-4 (]: 7 of 14 PASS not_null_stg_order_events_order_id ................................ [[32mPASS[0m in 1.91s]
+[0m15:15:11.812932 [debug] [Thread-2 (]: On test.enterprise_platform_snowflake.unique_mart_order_events_event_id.6a2025f6b1: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "test.enterprise_platform_snowflake.unique_mart_order_events_event_id.6a2025f6b1"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    event_id as unique_field,
+    count(*) as n_records
+
+from ENTERPRISE_PLATFORM.MARTS.mart_order_events
+where event_id is not null
+group by event_id
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m15:15:11.813670 [debug] [Thread-4 (]: Finished running node test.enterprise_platform_snowflake.not_null_stg_order_events_order_id.77189e6988
+[0m15:15:11.814133 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m15:15:11.814709 [debug] [Thread-4 (]: Began running node test.enterprise_platform_snowflake.unique_mart_orders_order_id.131efd2cc2
+[0m15:15:11.835904 [info ] [Thread-4 (]: 11 of 14 START test unique_mart_orders_order_id ................................ [RUN]
+[0m15:15:11.836877 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.enterprise_platform_snowflake.not_null_stg_order_events_order_id.77189e6988, now test.enterprise_platform_snowflake.unique_mart_orders_order_id.131efd2cc2)
+[0m15:15:11.837774 [debug] [Thread-4 (]: Began compiling node test.enterprise_platform_snowflake.unique_mart_orders_order_id.131efd2cc2
+[0m15:15:11.843554 [debug] [Thread-4 (]: Writing injected SQL for node "test.enterprise_platform_snowflake.unique_mart_orders_order_id.131efd2cc2"
+[0m15:15:11.849147 [debug] [Thread-4 (]: Began executing node test.enterprise_platform_snowflake.unique_mart_orders_order_id.131efd2cc2
+[0m15:15:11.854227 [debug] [Thread-4 (]: Writing runtime sql for node "test.enterprise_platform_snowflake.unique_mart_orders_order_id.131efd2cc2"
+[0m15:15:11.857890 [debug] [Thread-4 (]: Using snowflake connection "test.enterprise_platform_snowflake.unique_mart_orders_order_id.131efd2cc2"
+[0m15:15:11.858484 [debug] [Thread-4 (]: On test.enterprise_platform_snowflake.unique_mart_orders_order_id.131efd2cc2: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "test.enterprise_platform_snowflake.unique_mart_orders_order_id.131efd2cc2"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    order_id as unique_field,
+    count(*) as n_records
+
+from ENTERPRISE_PLATFORM.MARTS.mart_orders
+where order_id is not null
+group by order_id
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m15:15:11.859116 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m15:15:12.011696 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 1.177 seconds
+[0m15:15:12.014012 [debug] [Thread-3 (]: On test.enterprise_platform_snowflake.not_null_stg_orders_customer_id.af79d5e4b5: Close
+[0m15:15:12.516935 [info ] [Thread-3 (]: 8 of 14 PASS not_null_stg_orders_customer_id ................................... [[32mPASS[0m in 1.69s]
+[0m15:15:12.517937 [debug] [Thread-3 (]: Finished running node test.enterprise_platform_snowflake.not_null_stg_orders_customer_id.af79d5e4b5
+[0m15:15:12.518537 [debug] [Thread-3 (]: Began running node test.enterprise_platform_snowflake.unique_stg_customers_customer_id.c7614daada
+[0m15:15:12.519041 [info ] [Thread-3 (]: 12 of 14 START test unique_stg_customers_customer_id ........................... [RUN]
+[0m15:15:12.519766 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.enterprise_platform_snowflake.not_null_stg_orders_customer_id.af79d5e4b5, now test.enterprise_platform_snowflake.unique_stg_customers_customer_id.c7614daada)
+[0m15:15:12.520214 [debug] [Thread-3 (]: Began compiling node test.enterprise_platform_snowflake.unique_stg_customers_customer_id.c7614daada
+[0m15:15:12.525353 [debug] [Thread-3 (]: Writing injected SQL for node "test.enterprise_platform_snowflake.unique_stg_customers_customer_id.c7614daada"
+[0m15:15:12.526062 [debug] [Thread-3 (]: Began executing node test.enterprise_platform_snowflake.unique_stg_customers_customer_id.c7614daada
+[0m15:15:12.528670 [debug] [Thread-3 (]: Writing runtime sql for node "test.enterprise_platform_snowflake.unique_stg_customers_customer_id.c7614daada"
+[0m15:15:12.529764 [debug] [Thread-3 (]: Using snowflake connection "test.enterprise_platform_snowflake.unique_stg_customers_customer_id.c7614daada"
+[0m15:15:12.530218 [debug] [Thread-3 (]: On test.enterprise_platform_snowflake.unique_stg_customers_customer_id.c7614daada: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "test.enterprise_platform_snowflake.unique_stg_customers_customer_id.c7614daada"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    customer_id as unique_field,
+    count(*) as n_records
+
+from ENTERPRISE_PLATFORM.STAGING.stg_customers
+where customer_id is not null
+group by customer_id
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m15:15:12.530722 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m15:15:12.869542 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 1.177 seconds
+[0m15:15:12.871981 [debug] [Thread-1 (]: On test.enterprise_platform_snowflake.not_null_stg_orders_order_id.81cfe2fe64: Close
+[0m15:15:13.378546 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 1.564 seconds
+[0m15:15:13.380948 [debug] [Thread-2 (]: On test.enterprise_platform_snowflake.unique_mart_order_events_event_id.6a2025f6b1: Close
+[0m15:15:13.396743 [info ] [Thread-1 (]: 9 of 14 PASS not_null_stg_orders_order_id ...................................... [[32mPASS[0m in 1.72s]
+[0m15:15:13.397751 [debug] [Thread-1 (]: Finished running node test.enterprise_platform_snowflake.not_null_stg_orders_order_id.81cfe2fe64
+[0m15:15:13.398345 [debug] [Thread-1 (]: Began running node test.enterprise_platform_snowflake.unique_stg_order_events_event_id.5a198bea93
+[0m15:15:13.399021 [info ] [Thread-1 (]: 13 of 14 START test unique_stg_order_events_event_id ........................... [RUN]
+[0m15:15:13.399708 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.enterprise_platform_snowflake.not_null_stg_orders_order_id.81cfe2fe64, now test.enterprise_platform_snowflake.unique_stg_order_events_event_id.5a198bea93)
+[0m15:15:13.400154 [debug] [Thread-1 (]: Began compiling node test.enterprise_platform_snowflake.unique_stg_order_events_event_id.5a198bea93
+[0m15:15:13.405142 [debug] [Thread-1 (]: Writing injected SQL for node "test.enterprise_platform_snowflake.unique_stg_order_events_event_id.5a198bea93"
+[0m15:15:13.405880 [debug] [Thread-1 (]: Began executing node test.enterprise_platform_snowflake.unique_stg_order_events_event_id.5a198bea93
+[0m15:15:13.408452 [debug] [Thread-1 (]: Writing runtime sql for node "test.enterprise_platform_snowflake.unique_stg_order_events_event_id.5a198bea93"
+[0m15:15:13.409525 [debug] [Thread-1 (]: Using snowflake connection "test.enterprise_platform_snowflake.unique_stg_order_events_event_id.5a198bea93"
+[0m15:15:13.409971 [debug] [Thread-1 (]: On test.enterprise_platform_snowflake.unique_stg_order_events_event_id.5a198bea93: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "test.enterprise_platform_snowflake.unique_stg_order_events_event_id.5a198bea93"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    event_id as unique_field,
+    count(*) as n_records
+
+from ENTERPRISE_PLATFORM.STAGING.stg_order_events
+where event_id is not null
+group by event_id
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m15:15:13.410390 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m15:15:13.459961 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 1.601 seconds
+[0m15:15:13.462355 [debug] [Thread-4 (]: On test.enterprise_platform_snowflake.unique_mart_orders_order_id.131efd2cc2: Close
+[0m15:15:13.845907 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 1.315 seconds
+[0m15:15:13.848390 [debug] [Thread-3 (]: On test.enterprise_platform_snowflake.unique_stg_customers_customer_id.c7614daada: Close
+[0m15:15:13.884274 [info ] [Thread-2 (]: 10 of 14 PASS unique_mart_order_events_event_id ................................ [[32mPASS[0m in 2.09s]
+[0m15:15:13.885225 [debug] [Thread-2 (]: Finished running node test.enterprise_platform_snowflake.unique_mart_order_events_event_id.6a2025f6b1
+[0m15:15:13.885811 [debug] [Thread-2 (]: Began running node test.enterprise_platform_snowflake.unique_stg_orders_order_id.e3b841c71a
+[0m15:15:13.886409 [info ] [Thread-2 (]: 14 of 14 START test unique_stg_orders_order_id ................................. [RUN]
+[0m15:15:13.887139 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.enterprise_platform_snowflake.unique_mart_order_events_event_id.6a2025f6b1, now test.enterprise_platform_snowflake.unique_stg_orders_order_id.e3b841c71a)
+[0m15:15:13.887610 [debug] [Thread-2 (]: Began compiling node test.enterprise_platform_snowflake.unique_stg_orders_order_id.e3b841c71a
+[0m15:15:13.892589 [debug] [Thread-2 (]: Writing injected SQL for node "test.enterprise_platform_snowflake.unique_stg_orders_order_id.e3b841c71a"
+[0m15:15:13.893343 [debug] [Thread-2 (]: Began executing node test.enterprise_platform_snowflake.unique_stg_orders_order_id.e3b841c71a
+[0m15:15:13.896433 [debug] [Thread-2 (]: Writing runtime sql for node "test.enterprise_platform_snowflake.unique_stg_orders_order_id.e3b841c71a"
+[0m15:15:13.897770 [debug] [Thread-2 (]: Using snowflake connection "test.enterprise_platform_snowflake.unique_stg_orders_order_id.e3b841c71a"
+[0m15:15:13.898590 [debug] [Thread-2 (]: On test.enterprise_platform_snowflake.unique_stg_orders_order_id.e3b841c71a: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "test.enterprise_platform_snowflake.unique_stg_orders_order_id.e3b841c71a"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    order_id as unique_field,
+    count(*) as n_records
+
+from ENTERPRISE_PLATFORM.STAGING.stg_orders
+where order_id is not null
+group by order_id
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m15:15:13.899176 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m15:15:14.014544 [info ] [Thread-4 (]: 11 of 14 PASS unique_mart_orders_order_id ...................................... [[32mPASS[0m in 2.18s]
+[0m15:15:14.015602 [debug] [Thread-4 (]: Finished running node test.enterprise_platform_snowflake.unique_mart_orders_order_id.131efd2cc2
+[0m15:15:14.370071 [info ] [Thread-3 (]: 12 of 14 PASS unique_stg_customers_customer_id ................................. [[32mPASS[0m in 1.85s]
+[0m15:15:14.371204 [debug] [Thread-3 (]: Finished running node test.enterprise_platform_snowflake.unique_stg_customers_customer_id.c7614daada
+[0m15:15:14.717251 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 1.307 seconds
+[0m15:15:14.719691 [debug] [Thread-1 (]: On test.enterprise_platform_snowflake.unique_stg_order_events_event_id.5a198bea93: Close
+[0m15:15:15.108937 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 1.210 seconds
+[0m15:15:15.111431 [debug] [Thread-2 (]: On test.enterprise_platform_snowflake.unique_stg_orders_order_id.e3b841c71a: Close
+[0m15:15:15.254119 [info ] [Thread-1 (]: 13 of 14 PASS unique_stg_order_events_event_id ................................. [[32mPASS[0m in 1.85s]
+[0m15:15:15.255188 [debug] [Thread-1 (]: Finished running node test.enterprise_platform_snowflake.unique_stg_order_events_event_id.5a198bea93
+[0m15:15:15.642987 [info ] [Thread-2 (]: 14 of 14 PASS unique_stg_orders_order_id ....................................... [[32mPASS[0m in 1.76s]
+[0m15:15:15.643990 [debug] [Thread-2 (]: Finished running node test.enterprise_platform_snowflake.unique_stg_orders_order_id.e3b841c71a
+[0m15:15:15.646165 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m15:15:15.646657 [debug] [MainThread]: Connection 'test.enterprise_platform_snowflake.unique_stg_orders_order_id.e3b841c71a' was properly closed.
+[0m15:15:15.647264 [debug] [MainThread]: Connection 'test.enterprise_platform_snowflake.unique_stg_order_events_event_id.5a198bea93' was properly closed.
+[0m15:15:15.647729 [debug] [MainThread]: Connection 'test.enterprise_platform_snowflake.unique_stg_customers_customer_id.c7614daada' was properly closed.
+[0m15:15:15.648031 [debug] [MainThread]: Connection 'test.enterprise_platform_snowflake.unique_mart_orders_order_id.131efd2cc2' was properly closed.
+[0m15:15:15.648699 [info ] [MainThread]: 
+[0m15:15:15.649227 [info ] [MainThread]: Finished running 14 data tests in 0 hours 0 minutes and 10.90 seconds (10.90s).
+[0m15:15:15.652459 [debug] [MainThread]: Command end result
+[0m15:15:15.688823 [info ] [MainThread]: 
+[0m15:15:15.689489 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m15:15:15.689991 [info ] [MainThread]: 
+[0m15:15:15.690482 [info ] [MainThread]: Done. PASS=14 WARN=0 ERROR=0 SKIP=0 TOTAL=14
+[0m15:15:15.691577 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": true, "command_wall_clock_time": 12.607228, "process_user_time": 6.298604, "process_kernel_time": 0.592116, "process_mem_max_rss": "239712", "process_out_blocks": "2392", "process_in_blocks": "0"}
+[0m15:15:15.692108 [debug] [MainThread]: Command `dbt test` succeeded at 15:15:15.691992 after 12.61 seconds
+[0m15:15:15.692553 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71b99d167e00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71b987a92f90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71b99d4e25a0>]}
+[0m15:15:15.692974 [debug] [MainThread]: Flushing usage events
+[0m15:20:58.395780 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78d1f69712e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78d1f66a9040>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78d1f66a8fe0>]}
+
+
+============================== 15:20:58.399204 | ec728dbc-9b60-4a3d-b3be-8aa00fe4d63c ==============================
+[0m15:20:58.399204 [info ] [MainThread]: Running with dbt=1.8.7
+[0m15:20:58.399914 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'profiles_dir': 'warehouse/dbt_snowflake', 'log_path': 'warehouse/dbt_snowflake/logs', 'version_check': 'True', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'log_format': 'default', 'invocation_command': 'dbt run --project-dir warehouse/dbt_snowflake --profiles-dir warehouse/dbt_snowflake --full-refresh', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m15:20:59.302060 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'ec728dbc-9b60-4a3d-b3be-8aa00fe4d63c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78d1f76907d0>]}
+[0m15:20:59.369741 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'ec728dbc-9b60-4a3d-b3be-8aa00fe4d63c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78d1edca1bb0>]}
+[0m15:20:59.370679 [info ] [MainThread]: Registered adapter: snowflake=1.8.4
+[0m15:20:59.499908 [debug] [MainThread]: checksum: 4af21dafb485259c48497ac86b711ddb1982f3d0f1c0ca4e09356de488b753c0, vars: {}, profile: , target: , version: 1.8.7
+[0m15:20:59.744563 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m15:20:59.745050 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m15:20:59.795488 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'ec728dbc-9b60-4a3d-b3be-8aa00fe4d63c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78d1e54c4d40>]}
+[0m15:20:59.910881 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'ec728dbc-9b60-4a3d-b3be-8aa00fe4d63c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78d1e5562390>]}
+[0m15:20:59.911508 [info ] [MainThread]: Found 5 models, 14 data tests, 3 sources, 460 macros
+[0m15:20:59.912037 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'ec728dbc-9b60-4a3d-b3be-8aa00fe4d63c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78d1e53dbad0>]}
+[0m15:20:59.914545 [info ] [MainThread]: 
+[0m15:20:59.915276 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m15:20:59.920717 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_ENTERPRISE_PLATFORM'
+[0m15:20:59.921589 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_ENTERPRISE_PLATFORM'
+[0m15:20:59.939448 [debug] [ThreadPool]: Using snowflake connection "list_ENTERPRISE_PLATFORM"
+[0m15:20:59.941928 [debug] [ThreadPool]: Using snowflake connection "list_ENTERPRISE_PLATFORM"
+[0m15:20:59.942495 [debug] [ThreadPool]: On list_ENTERPRISE_PLATFORM: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "connection_name": "list_ENTERPRISE_PLATFORM"} */
+show terse schemas in database ENTERPRISE_PLATFORM
+    limit 10000
+[0m15:20:59.942981 [debug] [ThreadPool]: On list_ENTERPRISE_PLATFORM: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "connection_name": "list_ENTERPRISE_PLATFORM"} */
+show terse schemas in database ENTERPRISE_PLATFORM
+    limit 10000
+[0m15:20:59.943424 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m15:20:59.943830 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m15:21:02.328960 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 2.385 seconds
+[0m15:21:02.331741 [debug] [ThreadPool]: On list_ENTERPRISE_PLATFORM: Close
+[0m15:21:02.404284 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 2.460 seconds
+[0m15:21:02.406798 [debug] [ThreadPool]: On list_ENTERPRISE_PLATFORM: Close
+[0m15:21:02.926755 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_ENTERPRISE_PLATFORM, now list_ENTERPRISE_PLATFORM_STAGING)
+[0m15:21:02.928244 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_ENTERPRISE_PLATFORM, now list_ENTERPRISE_PLATFORM_MARTS)
+[0m15:21:02.940114 [debug] [ThreadPool]: Using snowflake connection "list_ENTERPRISE_PLATFORM_STAGING"
+[0m15:21:02.942659 [debug] [ThreadPool]: Using snowflake connection "list_ENTERPRISE_PLATFORM_MARTS"
+[0m15:21:02.943435 [debug] [ThreadPool]: On list_ENTERPRISE_PLATFORM_STAGING: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "connection_name": "list_ENTERPRISE_PLATFORM_STAGING"} */
+show objects in ENTERPRISE_PLATFORM.STAGING limit 10000
+[0m15:21:02.943939 [debug] [ThreadPool]: On list_ENTERPRISE_PLATFORM_MARTS: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "connection_name": "list_ENTERPRISE_PLATFORM_MARTS"} */
+show objects in ENTERPRISE_PLATFORM.MARTS limit 10000
+[0m15:21:02.944393 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m15:21:02.944834 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m15:21:04.648653 [debug] [ThreadPool]: SQL status: SUCCESS 3 in 1.704 seconds
+[0m15:21:04.650987 [debug] [ThreadPool]: On list_ENTERPRISE_PLATFORM_STAGING: Close
+[0m15:21:04.914598 [debug] [ThreadPool]: SQL status: SUCCESS 2 in 1.970 seconds
+[0m15:21:04.916772 [debug] [ThreadPool]: On list_ENTERPRISE_PLATFORM_MARTS: Close
+[0m15:21:05.469617 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'ec728dbc-9b60-4a3d-b3be-8aa00fe4d63c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78d1e5925b20>]}
+[0m15:21:05.470387 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m15:21:05.470965 [info ] [MainThread]: 
+[0m15:21:05.473152 [debug] [Thread-1 (]: Began running node model.enterprise_platform_snowflake.stg_customers
+[0m15:21:05.473758 [debug] [Thread-2 (]: Began running node model.enterprise_platform_snowflake.stg_order_events
+[0m15:21:05.474216 [debug] [Thread-3 (]: Began running node model.enterprise_platform_snowflake.stg_orders
+[0m15:21:05.476468 [info ] [Thread-3 (]: 3 of 5 START sql view model STAGING.stg_orders ................................. [RUN]
+[0m15:21:05.475770 [info ] [Thread-2 (]: 2 of 5 START sql view model STAGING.stg_order_events ........................... [RUN]
+[0m15:21:05.474997 [info ] [Thread-1 (]: 1 of 5 START sql view model STAGING.stg_customers .............................. [RUN]
+[0m15:21:05.477169 [debug] [Thread-3 (]: Acquiring new snowflake connection 'model.enterprise_platform_snowflake.stg_orders'
+[0m15:21:05.477739 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_ENTERPRISE_PLATFORM_MARTS, now model.enterprise_platform_snowflake.stg_order_events)
+[0m15:21:05.478261 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_ENTERPRISE_PLATFORM_STAGING, now model.enterprise_platform_snowflake.stg_customers)
+[0m15:21:05.478783 [debug] [Thread-3 (]: Began compiling node model.enterprise_platform_snowflake.stg_orders
+[0m15:21:05.479412 [debug] [Thread-2 (]: Began compiling node model.enterprise_platform_snowflake.stg_order_events
+[0m15:21:05.479884 [debug] [Thread-1 (]: Began compiling node model.enterprise_platform_snowflake.stg_customers
+[0m15:21:05.489815 [debug] [Thread-2 (]: Writing injected SQL for node "model.enterprise_platform_snowflake.stg_order_events"
+[0m15:21:05.495154 [debug] [Thread-3 (]: Writing injected SQL for node "model.enterprise_platform_snowflake.stg_orders"
+[0m15:21:05.498236 [debug] [Thread-1 (]: Writing injected SQL for node "model.enterprise_platform_snowflake.stg_customers"
+[0m15:21:05.499367 [debug] [Thread-2 (]: Began executing node model.enterprise_platform_snowflake.stg_order_events
+[0m15:21:05.499864 [debug] [Thread-3 (]: Began executing node model.enterprise_platform_snowflake.stg_orders
+[0m15:21:05.522992 [debug] [Thread-1 (]: Began executing node model.enterprise_platform_snowflake.stg_customers
+[0m15:21:05.536875 [debug] [Thread-2 (]: Writing runtime sql for node "model.enterprise_platform_snowflake.stg_order_events"
+[0m15:21:05.540296 [debug] [Thread-3 (]: Writing runtime sql for node "model.enterprise_platform_snowflake.stg_orders"
+[0m15:21:05.543355 [debug] [Thread-1 (]: Writing runtime sql for node "model.enterprise_platform_snowflake.stg_customers"
+[0m15:21:05.544837 [debug] [Thread-3 (]: Using snowflake connection "model.enterprise_platform_snowflake.stg_orders"
+[0m15:21:05.547129 [debug] [Thread-3 (]: On model.enterprise_platform_snowflake.stg_orders: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "model.enterprise_platform_snowflake.stg_orders"} */
+create or replace   view ENTERPRISE_PLATFORM.STAGING.stg_orders
+  
+   as (
+    select
+    order_id::number as order_id,
+    customer_id::number as customer_id,
+    amount::number(18,2) as amount,
+    upper(trim(status))::varchar as status,
+    updated_at::timestamp_tz as updated_at,
+    source_file,
+    loaded_at
+from ENTERPRISE_PLATFORM.RAW.raw_orders
+  );
+[0m15:21:05.547671 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m15:21:05.546378 [debug] [Thread-2 (]: Using snowflake connection "model.enterprise_platform_snowflake.stg_order_events"
+[0m15:21:05.567594 [debug] [Thread-2 (]: On model.enterprise_platform_snowflake.stg_order_events: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "model.enterprise_platform_snowflake.stg_order_events"} */
+create or replace   view ENTERPRISE_PLATFORM.STAGING.stg_order_events
+  
+   as (
+    with ranked as (
+    select
+        event_id::varchar as event_id,
+        event_type::varchar as event_type,
+        event_ts::timestamp_tz as event_ts,
+        order_id::number as order_id,
+        customer_id::number as customer_id,
+        amount::number(18,2) as amount,
+        upper(trim(status))::varchar as status,
+        channel::varchar as channel,
+        region::varchar as region,
+        schema_version::number as schema_version,
+        raw_payload,
+        loaded_at,
+        row_number() over (
+            partition by event_id
+            order by loaded_at desc
+        ) as rn
+    from ENTERPRISE_PLATFORM.RAW.raw_order_events
+)
+select
+    event_id,
+    event_type,
+    event_ts,
+    order_id,
+    customer_id,
+    amount,
+    status,
+    channel,
+    region,
+    schema_version,
+    raw_payload,
+    loaded_at
+from ranked
+where rn = 1
+  );
+[0m15:21:05.568764 [debug] [Thread-1 (]: Using snowflake connection "model.enterprise_platform_snowflake.stg_customers"
+[0m15:21:05.569433 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m15:21:05.570653 [debug] [Thread-1 (]: On model.enterprise_platform_snowflake.stg_customers: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "model.enterprise_platform_snowflake.stg_customers"} */
+create or replace   view ENTERPRISE_PLATFORM.STAGING.stg_customers
+  
+   as (
+    select
+    customer_id::number as customer_id,
+    trim(full_name)::varchar as full_name,
+    lower(trim(email))::varchar as email,
+    trim(country)::varchar as country,
+    source_file,
+    loaded_at
+from ENTERPRISE_PLATFORM.RAW.raw_customers
+  );
+[0m15:21:05.591768 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m15:21:06.873862 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 1.326 seconds
+[0m15:21:06.901732 [debug] [Thread-3 (]: On model.enterprise_platform_snowflake.stg_orders: Close
+[0m15:21:06.909883 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 1.340 seconds
+[0m15:21:06.912380 [debug] [Thread-2 (]: On model.enterprise_platform_snowflake.stg_order_events: Close
+[0m15:21:07.055126 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 1.463 seconds
+[0m15:21:07.057430 [debug] [Thread-1 (]: On model.enterprise_platform_snowflake.stg_customers: Close
+[0m15:21:07.433802 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'ec728dbc-9b60-4a3d-b3be-8aa00fe4d63c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78d1e5866840>]}
+[0m15:21:07.434729 [info ] [Thread-3 (]: 3 of 5 OK created sql view model STAGING.stg_orders ............................ [[32mSUCCESS 1[0m in 1.96s]
+[0m15:21:07.435624 [debug] [Thread-3 (]: Finished running node model.enterprise_platform_snowflake.stg_orders
+[0m15:21:07.443889 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'ec728dbc-9b60-4a3d-b3be-8aa00fe4d63c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78d1f65f7e00>]}
+[0m15:21:07.444818 [info ] [Thread-2 (]: 2 of 5 OK created sql view model STAGING.stg_order_events ...................... [[32mSUCCESS 1[0m in 1.97s]
+[0m15:21:07.445672 [debug] [Thread-2 (]: Finished running node model.enterprise_platform_snowflake.stg_order_events
+[0m15:21:07.446486 [debug] [Thread-4 (]: Began running node model.enterprise_platform_snowflake.mart_order_events
+[0m15:21:07.447269 [info ] [Thread-4 (]: 4 of 5 START sql view model MARTS.mart_order_events ............................ [RUN]
+[0m15:21:07.448064 [debug] [Thread-4 (]: Acquiring new snowflake connection 'model.enterprise_platform_snowflake.mart_order_events'
+[0m15:21:07.448719 [debug] [Thread-4 (]: Began compiling node model.enterprise_platform_snowflake.mart_order_events
+[0m15:21:07.452162 [debug] [Thread-4 (]: Writing injected SQL for node "model.enterprise_platform_snowflake.mart_order_events"
+[0m15:21:07.452817 [debug] [Thread-4 (]: Began executing node model.enterprise_platform_snowflake.mart_order_events
+[0m15:21:07.455712 [debug] [Thread-4 (]: Writing runtime sql for node "model.enterprise_platform_snowflake.mart_order_events"
+[0m15:21:07.456780 [debug] [Thread-4 (]: Using snowflake connection "model.enterprise_platform_snowflake.mart_order_events"
+[0m15:21:07.457275 [debug] [Thread-4 (]: On model.enterprise_platform_snowflake.mart_order_events: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "model.enterprise_platform_snowflake.mart_order_events"} */
+create or replace   view ENTERPRISE_PLATFORM.MARTS.mart_order_events
+  
+   as (
+    select
+    event_id,
+    event_type,
+    event_ts,
+    order_id,
+    customer_id,
+    amount,
+    status,
+    channel,
+    region,
+    schema_version,
+    loaded_at
+from ENTERPRISE_PLATFORM.STAGING.stg_order_events
+  );
+[0m15:21:07.457720 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m15:21:07.580403 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'ec728dbc-9b60-4a3d-b3be-8aa00fe4d63c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78d1f98e9b20>]}
+[0m15:21:07.581305 [info ] [Thread-1 (]: 1 of 5 OK created sql view model STAGING.stg_customers ......................... [[32mSUCCESS 1[0m in 2.10s]
+[0m15:21:07.582146 [debug] [Thread-1 (]: Finished running node model.enterprise_platform_snowflake.stg_customers
+[0m15:21:07.583023 [debug] [Thread-2 (]: Began running node model.enterprise_platform_snowflake.mart_orders
+[0m15:21:07.583650 [info ] [Thread-2 (]: 5 of 5 START sql view model MARTS.mart_orders .................................. [RUN]
+[0m15:21:07.584245 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.enterprise_platform_snowflake.stg_order_events, now model.enterprise_platform_snowflake.mart_orders)
+[0m15:21:07.584707 [debug] [Thread-2 (]: Began compiling node model.enterprise_platform_snowflake.mart_orders
+[0m15:21:07.588422 [debug] [Thread-2 (]: Writing injected SQL for node "model.enterprise_platform_snowflake.mart_orders"
+[0m15:21:07.589068 [debug] [Thread-2 (]: Began executing node model.enterprise_platform_snowflake.mart_orders
+[0m15:21:07.592417 [debug] [Thread-2 (]: Writing runtime sql for node "model.enterprise_platform_snowflake.mart_orders"
+[0m15:21:07.594476 [debug] [Thread-2 (]: Using snowflake connection "model.enterprise_platform_snowflake.mart_orders"
+[0m15:21:07.595045 [debug] [Thread-2 (]: On model.enterprise_platform_snowflake.mart_orders: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "model.enterprise_platform_snowflake.mart_orders"} */
+create or replace   view ENTERPRISE_PLATFORM.MARTS.mart_orders
+  
+   as (
+    with batch_orders as (
+    select
+        order_id,
+        customer_id,
+        amount,
+        status,
+        updated_at,
+        null::varchar as event_id,
+        null::varchar as channel,
+        null::varchar as region,
+        'BATCH'::varchar as source_type
+    from ENTERPRISE_PLATFORM.STAGING.stg_orders
+),
+stream_orders as (
+    select
+        order_id,
+        customer_id,
+        amount,
+        status,
+        event_ts as updated_at,
+        event_id,
+        channel,
+        region,
+        'EVENT'::varchar as source_type
+    from ENTERPRISE_PLATFORM.STAGING.stg_order_events
+),
+all_versions as (
+    select * from batch_orders
+    union all
+    select * from stream_orders
+),
+latest_order as (
+    select *
+    from all_versions
+    qualify row_number() over (
+        partition by order_id
+        order by updated_at desc, source_type desc
+    ) = 1
+)
+select
+    o.order_id,
+    o.customer_id,
+    c.full_name,
+    c.email,
+    c.country,
+    o.amount,
+    o.status,
+    o.updated_at,
+    o.event_id,
+    o.channel,
+    o.region,
+    o.source_type
+from latest_order o
+left join ENTERPRISE_PLATFORM.STAGING.stg_customers c
+  on o.customer_id = c.customer_id
+  );
+[0m15:21:07.595525 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m15:21:08.801083 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 1.343 seconds
+[0m15:21:08.803733 [debug] [Thread-4 (]: On model.enterprise_platform_snowflake.mart_order_events: Close
+[0m15:21:09.248402 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 1.653 seconds
+[0m15:21:09.250823 [debug] [Thread-2 (]: On model.enterprise_platform_snowflake.mart_orders: Close
+[0m15:21:09.374453 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'ec728dbc-9b60-4a3d-b3be-8aa00fe4d63c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78d1d9bae9c0>]}
+[0m15:21:09.375481 [info ] [Thread-4 (]: 4 of 5 OK created sql view model MARTS.mart_order_events ....................... [[32mSUCCESS 1[0m in 1.93s]
+[0m15:21:09.376291 [debug] [Thread-4 (]: Finished running node model.enterprise_platform_snowflake.mart_order_events
+[0m15:21:09.777727 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'ec728dbc-9b60-4a3d-b3be-8aa00fe4d63c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78d1f9a336e0>]}
+[0m15:21:09.778691 [info ] [Thread-2 (]: 5 of 5 OK created sql view model MARTS.mart_orders ............................. [[32mSUCCESS 1[0m in 2.19s]
+[0m15:21:09.779655 [debug] [Thread-2 (]: Finished running node model.enterprise_platform_snowflake.mart_orders
+[0m15:21:09.781580 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m15:21:09.781934 [debug] [MainThread]: Connection 'model.enterprise_platform_snowflake.mart_orders' was properly closed.
+[0m15:21:09.782243 [debug] [MainThread]: Connection 'model.enterprise_platform_snowflake.stg_customers' was properly closed.
+[0m15:21:09.782593 [debug] [MainThread]: Connection 'model.enterprise_platform_snowflake.stg_orders' was properly closed.
+[0m15:21:09.782992 [debug] [MainThread]: Connection 'model.enterprise_platform_snowflake.mart_order_events' was properly closed.
+[0m15:21:09.783494 [info ] [MainThread]: 
+[0m15:21:09.783963 [info ] [MainThread]: Finished running 5 view models in 0 hours 0 minutes and 9.87 seconds (9.87s).
+[0m15:21:09.785453 [debug] [MainThread]: Command end result
+[0m15:21:09.820743 [info ] [MainThread]: 
+[0m15:21:09.821408 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m15:21:09.821910 [info ] [MainThread]: 
+[0m15:21:09.822397 [info ] [MainThread]: Done. PASS=5 WARN=0 ERROR=0 SKIP=0 TOTAL=5
+[0m15:21:09.823454 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 11.486564, "process_user_time": 4.729439, "process_kernel_time": 0.467466, "process_mem_max_rss": "235984", "process_out_blocks": "2192", "process_in_blocks": "0"}
+[0m15:21:09.824005 [debug] [MainThread]: Command `dbt run` succeeded at 15:21:09.823887 after 11.49 seconds
+[0m15:21:09.824439 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78d1e5197fb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78d1e5ab4bc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78d1d9bf70e0>]}
+[0m15:21:09.824856 [debug] [MainThread]: Flushing usage events
+[0m15:21:20.197663 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76f38612c740>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76f386260f20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76f386260aa0>]}
+
+
+============================== 15:21:20.201123 | c7463463-7f2c-4b8d-89ed-103a4be2adb5 ==============================
+[0m15:21:20.201123 [info ] [MainThread]: Running with dbt=1.8.7
+[0m15:21:20.201828 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'debug': 'False', 'log_path': 'warehouse/dbt_snowflake/logs', 'version_check': 'True', 'profiles_dir': 'warehouse/dbt_snowflake', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt test --project-dir warehouse/dbt_snowflake --profiles-dir warehouse/dbt_snowflake', 'log_format': 'default', 'static_parser': 'True', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m15:21:21.110500 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'c7463463-7f2c-4b8d-89ed-103a4be2adb5', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76f374b32ae0>]}
+[0m15:21:21.177218 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'c7463463-7f2c-4b8d-89ed-103a4be2adb5', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76f386994aa0>]}
+[0m15:21:21.178162 [info ] [MainThread]: Registered adapter: snowflake=1.8.4
+[0m15:21:21.307623 [debug] [MainThread]: checksum: 4af21dafb485259c48497ac86b711ddb1982f3d0f1c0ca4e09356de488b753c0, vars: {}, profile: , target: , version: 1.8.7
+[0m15:21:21.551421 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m15:21:21.551896 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m15:21:21.602199 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'c7463463-7f2c-4b8d-89ed-103a4be2adb5', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76f374457380>]}
+[0m15:21:21.732297 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'c7463463-7f2c-4b8d-89ed-103a4be2adb5', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76f374398ce0>]}
+[0m15:21:21.732972 [info ] [MainThread]: Found 5 models, 14 data tests, 3 sources, 460 macros
+[0m15:21:21.733519 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'c7463463-7f2c-4b8d-89ed-103a4be2adb5', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76f3862cb8f0>]}
+[0m15:21:21.736507 [info ] [MainThread]: 
+[0m15:21:21.737265 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m15:21:21.742736 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_ENTERPRISE_PLATFORM_STAGING'
+[0m15:21:21.745065 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_ENTERPRISE_PLATFORM_MARTS'
+[0m15:21:21.765906 [debug] [ThreadPool]: Using snowflake connection "list_ENTERPRISE_PLATFORM_STAGING"
+[0m15:21:21.768466 [debug] [ThreadPool]: Using snowflake connection "list_ENTERPRISE_PLATFORM_MARTS"
+[0m15:21:21.769014 [debug] [ThreadPool]: On list_ENTERPRISE_PLATFORM_STAGING: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "connection_name": "list_ENTERPRISE_PLATFORM_STAGING"} */
+show objects in ENTERPRISE_PLATFORM.STAGING limit 10000
+[0m15:21:21.769497 [debug] [ThreadPool]: On list_ENTERPRISE_PLATFORM_MARTS: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "connection_name": "list_ENTERPRISE_PLATFORM_MARTS"} */
+show objects in ENTERPRISE_PLATFORM.MARTS limit 10000
+[0m15:21:21.769929 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m15:21:21.770312 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m15:21:23.658405 [debug] [ThreadPool]: SQL status: SUCCESS 2 in 1.888 seconds
+[0m15:21:23.660986 [debug] [ThreadPool]: On list_ENTERPRISE_PLATFORM_MARTS: Close
+[0m15:21:23.686554 [debug] [ThreadPool]: SQL status: SUCCESS 3 in 1.917 seconds
+[0m15:21:23.688918 [debug] [ThreadPool]: On list_ENTERPRISE_PLATFORM_STAGING: Close
+[0m15:21:24.211998 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'c7463463-7f2c-4b8d-89ed-103a4be2adb5', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76f386fed0a0>]}
+[0m15:21:24.212776 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m15:21:24.213283 [info ] [MainThread]: 
+[0m15:21:24.215785 [debug] [Thread-1 (]: Began running node test.enterprise_platform_snowflake.not_null_mart_order_events_event_id.06780a96f5
+[0m15:21:24.216392 [debug] [Thread-2 (]: Began running node test.enterprise_platform_snowflake.not_null_mart_orders_customer_id.99d120870c
+[0m15:21:24.216900 [info ] [Thread-1 (]: 1 of 14 START test not_null_mart_order_events_event_id ......................... [RUN]
+[0m15:21:24.219230 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_ENTERPRISE_PLATFORM_MARTS, now test.enterprise_platform_snowflake.not_null_mart_order_events_event_id.06780a96f5)
+[0m15:21:24.217982 [debug] [Thread-4 (]: Began running node test.enterprise_platform_snowflake.not_null_stg_customers_customer_id.e2cfb1f9aa
+[0m15:21:24.218492 [info ] [Thread-2 (]: 2 of 14 START test not_null_mart_orders_customer_id ............................ [RUN]
+[0m15:21:24.220915 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_ENTERPRISE_PLATFORM_STAGING, now test.enterprise_platform_snowflake.not_null_mart_orders_customer_id.99d120870c)
+[0m15:21:24.219736 [debug] [Thread-1 (]: Began compiling node test.enterprise_platform_snowflake.not_null_mart_order_events_event_id.06780a96f5
+[0m15:21:24.220263 [info ] [Thread-4 (]: 4 of 14 START test not_null_stg_customers_customer_id .......................... [RUN]
+[0m15:21:24.221430 [debug] [Thread-2 (]: Began compiling node test.enterprise_platform_snowflake.not_null_mart_orders_customer_id.99d120870c
+[0m15:21:24.217525 [debug] [Thread-3 (]: Began running node test.enterprise_platform_snowflake.not_null_mart_orders_order_id.a21e3c5d25
+[0m15:21:24.243560 [debug] [Thread-4 (]: Acquiring new snowflake connection 'test.enterprise_platform_snowflake.not_null_stg_customers_customer_id.e2cfb1f9aa'
+[0m15:21:24.246017 [debug] [Thread-1 (]: Writing injected SQL for node "test.enterprise_platform_snowflake.not_null_mart_order_events_event_id.06780a96f5"
+[0m15:21:24.250895 [debug] [Thread-2 (]: Writing injected SQL for node "test.enterprise_platform_snowflake.not_null_mart_orders_customer_id.99d120870c"
+[0m15:21:24.251587 [info ] [Thread-3 (]: 3 of 14 START test not_null_mart_orders_order_id ............................... [RUN]
+[0m15:21:24.252237 [debug] [Thread-4 (]: Began compiling node test.enterprise_platform_snowflake.not_null_stg_customers_customer_id.e2cfb1f9aa
+[0m15:21:24.253348 [debug] [Thread-3 (]: Acquiring new snowflake connection 'test.enterprise_platform_snowflake.not_null_mart_orders_order_id.a21e3c5d25'
+[0m15:21:24.258293 [debug] [Thread-4 (]: Writing injected SQL for node "test.enterprise_platform_snowflake.not_null_stg_customers_customer_id.e2cfb1f9aa"
+[0m15:21:24.258942 [debug] [Thread-2 (]: Began executing node test.enterprise_platform_snowflake.not_null_mart_orders_customer_id.99d120870c
+[0m15:21:24.259452 [debug] [Thread-1 (]: Began executing node test.enterprise_platform_snowflake.not_null_mart_order_events_event_id.06780a96f5
+[0m15:21:24.260011 [debug] [Thread-3 (]: Began compiling node test.enterprise_platform_snowflake.not_null_mart_orders_order_id.a21e3c5d25
+[0m15:21:24.291038 [debug] [Thread-3 (]: Writing injected SQL for node "test.enterprise_platform_snowflake.not_null_mart_orders_order_id.a21e3c5d25"
+[0m15:21:24.303432 [debug] [Thread-1 (]: Writing runtime sql for node "test.enterprise_platform_snowflake.not_null_mart_order_events_event_id.06780a96f5"
+[0m15:21:24.304921 [debug] [Thread-2 (]: Writing runtime sql for node "test.enterprise_platform_snowflake.not_null_mart_orders_customer_id.99d120870c"
+[0m15:21:24.305538 [debug] [Thread-4 (]: Began executing node test.enterprise_platform_snowflake.not_null_stg_customers_customer_id.e2cfb1f9aa
+[0m15:21:24.306460 [debug] [Thread-3 (]: Began executing node test.enterprise_platform_snowflake.not_null_mart_orders_order_id.a21e3c5d25
+[0m15:21:24.307468 [debug] [Thread-1 (]: Using snowflake connection "test.enterprise_platform_snowflake.not_null_mart_order_events_event_id.06780a96f5"
+[0m15:21:24.310353 [debug] [Thread-4 (]: Writing runtime sql for node "test.enterprise_platform_snowflake.not_null_stg_customers_customer_id.e2cfb1f9aa"
+[0m15:21:24.312991 [debug] [Thread-3 (]: Writing runtime sql for node "test.enterprise_platform_snowflake.not_null_mart_orders_order_id.a21e3c5d25"
+[0m15:21:24.313869 [debug] [Thread-2 (]: Using snowflake connection "test.enterprise_platform_snowflake.not_null_mart_orders_customer_id.99d120870c"
+[0m15:21:24.314410 [debug] [Thread-1 (]: On test.enterprise_platform_snowflake.not_null_mart_order_events_event_id.06780a96f5: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "test.enterprise_platform_snowflake.not_null_mart_order_events_event_id.06780a96f5"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select event_id
+from ENTERPRISE_PLATFORM.MARTS.mart_order_events
+where event_id is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:21:24.315712 [debug] [Thread-4 (]: Using snowflake connection "test.enterprise_platform_snowflake.not_null_stg_customers_customer_id.e2cfb1f9aa"
+[0m15:21:24.316492 [debug] [Thread-3 (]: Using snowflake connection "test.enterprise_platform_snowflake.not_null_mart_orders_order_id.a21e3c5d25"
+[0m15:21:24.316959 [debug] [Thread-2 (]: On test.enterprise_platform_snowflake.not_null_mart_orders_customer_id.99d120870c: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "test.enterprise_platform_snowflake.not_null_mart_orders_customer_id.99d120870c"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select customer_id
+from ENTERPRISE_PLATFORM.MARTS.mart_orders
+where customer_id is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:21:24.317452 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m15:21:24.317927 [debug] [Thread-4 (]: On test.enterprise_platform_snowflake.not_null_stg_customers_customer_id.e2cfb1f9aa: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "test.enterprise_platform_snowflake.not_null_stg_customers_customer_id.e2cfb1f9aa"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select customer_id
+from ENTERPRISE_PLATFORM.STAGING.stg_customers
+where customer_id is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:21:24.318433 [debug] [Thread-3 (]: On test.enterprise_platform_snowflake.not_null_mart_orders_order_id.a21e3c5d25: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "test.enterprise_platform_snowflake.not_null_mart_orders_order_id.a21e3c5d25"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select order_id
+from ENTERPRISE_PLATFORM.MARTS.mart_orders
+where order_id is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:21:24.325026 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m15:21:24.324272 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m15:21:24.318978 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m15:21:25.728943 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 1.405 seconds
+[0m15:21:25.739895 [debug] [Thread-4 (]: On test.enterprise_platform_snowflake.not_null_stg_customers_customer_id.e2cfb1f9aa: Close
+[0m15:21:26.228758 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 1.911 seconds
+[0m15:21:26.231163 [debug] [Thread-1 (]: On test.enterprise_platform_snowflake.not_null_mart_order_events_event_id.06780a96f5: Close
+[0m15:21:26.314169 [info ] [Thread-4 (]: 4 of 14 PASS not_null_stg_customers_customer_id ................................ [[32mPASS[0m in 2.07s]
+[0m15:21:26.315310 [debug] [Thread-4 (]: Finished running node test.enterprise_platform_snowflake.not_null_stg_customers_customer_id.e2cfb1f9aa
+[0m15:21:26.315928 [debug] [Thread-4 (]: Began running node test.enterprise_platform_snowflake.not_null_stg_order_events_customer_id.46a0e7f729
+[0m15:21:26.316524 [info ] [Thread-4 (]: 5 of 14 START test not_null_stg_order_events_customer_id ....................... [RUN]
+[0m15:21:26.317122 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.enterprise_platform_snowflake.not_null_stg_customers_customer_id.e2cfb1f9aa, now test.enterprise_platform_snowflake.not_null_stg_order_events_customer_id.46a0e7f729)
+[0m15:21:26.317593 [debug] [Thread-4 (]: Began compiling node test.enterprise_platform_snowflake.not_null_stg_order_events_customer_id.46a0e7f729
+[0m15:21:26.322859 [debug] [Thread-4 (]: Writing injected SQL for node "test.enterprise_platform_snowflake.not_null_stg_order_events_customer_id.46a0e7f729"
+[0m15:21:26.323618 [debug] [Thread-4 (]: Began executing node test.enterprise_platform_snowflake.not_null_stg_order_events_customer_id.46a0e7f729
+[0m15:21:26.326137 [debug] [Thread-4 (]: Writing runtime sql for node "test.enterprise_platform_snowflake.not_null_stg_order_events_customer_id.46a0e7f729"
+[0m15:21:26.327168 [debug] [Thread-4 (]: Using snowflake connection "test.enterprise_platform_snowflake.not_null_stg_order_events_customer_id.46a0e7f729"
+[0m15:21:26.327687 [debug] [Thread-4 (]: On test.enterprise_platform_snowflake.not_null_stg_order_events_customer_id.46a0e7f729: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "test.enterprise_platform_snowflake.not_null_stg_order_events_customer_id.46a0e7f729"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select customer_id
+from ENTERPRISE_PLATFORM.STAGING.stg_order_events
+where customer_id is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:21:26.328118 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m15:21:26.514951 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 2.196 seconds
+[0m15:21:26.517240 [debug] [Thread-2 (]: On test.enterprise_platform_snowflake.not_null_mart_orders_customer_id.99d120870c: Close
+[0m15:21:26.681376 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 2.356 seconds
+[0m15:21:26.683719 [debug] [Thread-3 (]: On test.enterprise_platform_snowflake.not_null_mart_orders_order_id.a21e3c5d25: Close
+[0m15:21:26.737197 [info ] [Thread-1 (]: 1 of 14 PASS not_null_mart_order_events_event_id ............................... [[32mPASS[0m in 2.52s]
+[0m15:21:26.738172 [debug] [Thread-1 (]: Finished running node test.enterprise_platform_snowflake.not_null_mart_order_events_event_id.06780a96f5
+[0m15:21:26.738790 [debug] [Thread-1 (]: Began running node test.enterprise_platform_snowflake.not_null_stg_order_events_event_id.0abfeef2f5
+[0m15:21:26.739454 [info ] [Thread-1 (]: 6 of 14 START test not_null_stg_order_events_event_id .......................... [RUN]
+[0m15:21:26.740063 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.enterprise_platform_snowflake.not_null_mart_order_events_event_id.06780a96f5, now test.enterprise_platform_snowflake.not_null_stg_order_events_event_id.0abfeef2f5)
+[0m15:21:26.740516 [debug] [Thread-1 (]: Began compiling node test.enterprise_platform_snowflake.not_null_stg_order_events_event_id.0abfeef2f5
+[0m15:21:26.745427 [debug] [Thread-1 (]: Writing injected SQL for node "test.enterprise_platform_snowflake.not_null_stg_order_events_event_id.0abfeef2f5"
+[0m15:21:26.746075 [debug] [Thread-1 (]: Began executing node test.enterprise_platform_snowflake.not_null_stg_order_events_event_id.0abfeef2f5
+[0m15:21:26.749897 [debug] [Thread-1 (]: Writing runtime sql for node "test.enterprise_platform_snowflake.not_null_stg_order_events_event_id.0abfeef2f5"
+[0m15:21:26.750905 [debug] [Thread-1 (]: Using snowflake connection "test.enterprise_platform_snowflake.not_null_stg_order_events_event_id.0abfeef2f5"
+[0m15:21:26.751407 [debug] [Thread-1 (]: On test.enterprise_platform_snowflake.not_null_stg_order_events_event_id.0abfeef2f5: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "test.enterprise_platform_snowflake.not_null_stg_order_events_event_id.0abfeef2f5"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select event_id
+from ENTERPRISE_PLATFORM.STAGING.stg_order_events
+where event_id is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:21:26.751842 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m15:21:27.040494 [info ] [Thread-2 (]: 2 of 14 PASS not_null_mart_orders_customer_id .................................. [[32mPASS[0m in 2.82s]
+[0m15:21:27.041660 [debug] [Thread-2 (]: Finished running node test.enterprise_platform_snowflake.not_null_mart_orders_customer_id.99d120870c
+[0m15:21:27.042557 [debug] [Thread-2 (]: Began running node test.enterprise_platform_snowflake.not_null_stg_order_events_order_id.77189e6988
+[0m15:21:27.043523 [info ] [Thread-2 (]: 7 of 14 START test not_null_stg_order_events_order_id .......................... [RUN]
+[0m15:21:27.044370 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.enterprise_platform_snowflake.not_null_mart_orders_customer_id.99d120870c, now test.enterprise_platform_snowflake.not_null_stg_order_events_order_id.77189e6988)
+[0m15:21:27.045039 [debug] [Thread-2 (]: Began compiling node test.enterprise_platform_snowflake.not_null_stg_order_events_order_id.77189e6988
+[0m15:21:27.052698 [debug] [Thread-2 (]: Writing injected SQL for node "test.enterprise_platform_snowflake.not_null_stg_order_events_order_id.77189e6988"
+[0m15:21:27.053814 [debug] [Thread-2 (]: Began executing node test.enterprise_platform_snowflake.not_null_stg_order_events_order_id.77189e6988
+[0m15:21:27.056820 [debug] [Thread-2 (]: Writing runtime sql for node "test.enterprise_platform_snowflake.not_null_stg_order_events_order_id.77189e6988"
+[0m15:21:27.058359 [debug] [Thread-2 (]: Using snowflake connection "test.enterprise_platform_snowflake.not_null_stg_order_events_order_id.77189e6988"
+[0m15:21:27.059249 [debug] [Thread-2 (]: On test.enterprise_platform_snowflake.not_null_stg_order_events_order_id.77189e6988: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "test.enterprise_platform_snowflake.not_null_stg_order_events_order_id.77189e6988"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select order_id
+from ENTERPRISE_PLATFORM.STAGING.stg_order_events
+where order_id is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:21:27.059946 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m15:21:27.228554 [info ] [Thread-3 (]: 3 of 14 PASS not_null_mart_orders_order_id ..................................... [[32mPASS[0m in 2.97s]
+[0m15:21:27.229546 [debug] [Thread-3 (]: Finished running node test.enterprise_platform_snowflake.not_null_mart_orders_order_id.a21e3c5d25
+[0m15:21:27.230104 [debug] [Thread-3 (]: Began running node test.enterprise_platform_snowflake.not_null_stg_orders_customer_id.af79d5e4b5
+[0m15:21:27.230686 [info ] [Thread-3 (]: 8 of 14 START test not_null_stg_orders_customer_id ............................. [RUN]
+[0m15:21:27.231371 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.enterprise_platform_snowflake.not_null_mart_orders_order_id.a21e3c5d25, now test.enterprise_platform_snowflake.not_null_stg_orders_customer_id.af79d5e4b5)
+[0m15:21:27.231808 [debug] [Thread-3 (]: Began compiling node test.enterprise_platform_snowflake.not_null_stg_orders_customer_id.af79d5e4b5
+[0m15:21:27.236692 [debug] [Thread-3 (]: Writing injected SQL for node "test.enterprise_platform_snowflake.not_null_stg_orders_customer_id.af79d5e4b5"
+[0m15:21:27.237367 [debug] [Thread-3 (]: Began executing node test.enterprise_platform_snowflake.not_null_stg_orders_customer_id.af79d5e4b5
+[0m15:21:27.239836 [debug] [Thread-3 (]: Writing runtime sql for node "test.enterprise_platform_snowflake.not_null_stg_orders_customer_id.af79d5e4b5"
+[0m15:21:27.240792 [debug] [Thread-3 (]: Using snowflake connection "test.enterprise_platform_snowflake.not_null_stg_orders_customer_id.af79d5e4b5"
+[0m15:21:27.241255 [debug] [Thread-3 (]: On test.enterprise_platform_snowflake.not_null_stg_orders_customer_id.af79d5e4b5: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "test.enterprise_platform_snowflake.not_null_stg_orders_customer_id.af79d5e4b5"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select customer_id
+from ENTERPRISE_PLATFORM.STAGING.stg_orders
+where customer_id is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:21:27.241720 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m15:21:27.637308 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 1.309 seconds
+[0m15:21:27.639869 [debug] [Thread-4 (]: On test.enterprise_platform_snowflake.not_null_stg_order_events_customer_id.46a0e7f729: Close
+[0m15:21:28.039545 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 1.288 seconds
+[0m15:21:28.041897 [debug] [Thread-1 (]: On test.enterprise_platform_snowflake.not_null_stg_order_events_event_id.0abfeef2f5: Close
+[0m15:21:28.184679 [info ] [Thread-4 (]: 5 of 14 PASS not_null_stg_order_events_customer_id ............................. [[32mPASS[0m in 1.87s]
+[0m15:21:28.185648 [debug] [Thread-4 (]: Finished running node test.enterprise_platform_snowflake.not_null_stg_order_events_customer_id.46a0e7f729
+[0m15:21:28.186203 [debug] [Thread-4 (]: Began running node test.enterprise_platform_snowflake.not_null_stg_orders_order_id.81cfe2fe64
+[0m15:21:28.187014 [info ] [Thread-4 (]: 9 of 14 START test not_null_stg_orders_order_id ................................ [RUN]
+[0m15:21:28.187725 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.enterprise_platform_snowflake.not_null_stg_order_events_customer_id.46a0e7f729, now test.enterprise_platform_snowflake.not_null_stg_orders_order_id.81cfe2fe64)
+[0m15:21:28.188158 [debug] [Thread-4 (]: Began compiling node test.enterprise_platform_snowflake.not_null_stg_orders_order_id.81cfe2fe64
+[0m15:21:28.193578 [debug] [Thread-4 (]: Writing injected SQL for node "test.enterprise_platform_snowflake.not_null_stg_orders_order_id.81cfe2fe64"
+[0m15:21:28.194340 [debug] [Thread-4 (]: Began executing node test.enterprise_platform_snowflake.not_null_stg_orders_order_id.81cfe2fe64
+[0m15:21:28.198586 [debug] [Thread-4 (]: Writing runtime sql for node "test.enterprise_platform_snowflake.not_null_stg_orders_order_id.81cfe2fe64"
+[0m15:21:28.199693 [debug] [Thread-4 (]: Using snowflake connection "test.enterprise_platform_snowflake.not_null_stg_orders_order_id.81cfe2fe64"
+[0m15:21:28.200210 [debug] [Thread-4 (]: On test.enterprise_platform_snowflake.not_null_stg_orders_order_id.81cfe2fe64: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "test.enterprise_platform_snowflake.not_null_stg_orders_order_id.81cfe2fe64"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select order_id
+from ENTERPRISE_PLATFORM.STAGING.stg_orders
+where order_id is null
+
+
+
+      
+    ) dbt_internal_test
+[0m15:21:28.200675 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m15:21:28.567593 [info ] [Thread-1 (]: 6 of 14 PASS not_null_stg_order_events_event_id ................................ [[32mPASS[0m in 1.83s]
+[0m15:21:28.568568 [debug] [Thread-1 (]: Finished running node test.enterprise_platform_snowflake.not_null_stg_order_events_event_id.0abfeef2f5
+[0m15:21:28.569112 [debug] [Thread-1 (]: Began running node test.enterprise_platform_snowflake.unique_mart_order_events_event_id.6a2025f6b1
+[0m15:21:28.569682 [info ] [Thread-1 (]: 10 of 14 START test unique_mart_order_events_event_id .......................... [RUN]
+[0m15:21:28.570273 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.enterprise_platform_snowflake.not_null_stg_order_events_event_id.0abfeef2f5, now test.enterprise_platform_snowflake.unique_mart_order_events_event_id.6a2025f6b1)
+[0m15:21:28.570731 [debug] [Thread-1 (]: Began compiling node test.enterprise_platform_snowflake.unique_mart_order_events_event_id.6a2025f6b1
+[0m15:21:28.578765 [debug] [Thread-1 (]: Writing injected SQL for node "test.enterprise_platform_snowflake.unique_mart_order_events_event_id.6a2025f6b1"
+[0m15:21:28.580579 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 1.521 seconds
+[0m15:21:28.581135 [debug] [Thread-1 (]: Began executing node test.enterprise_platform_snowflake.unique_mart_order_events_event_id.6a2025f6b1
+[0m15:21:28.583456 [debug] [Thread-2 (]: On test.enterprise_platform_snowflake.not_null_stg_order_events_order_id.77189e6988: Close
+[0m15:21:28.586281 [debug] [Thread-1 (]: Writing runtime sql for node "test.enterprise_platform_snowflake.unique_mart_order_events_event_id.6a2025f6b1"
+[0m15:21:28.589591 [debug] [Thread-1 (]: Using snowflake connection "test.enterprise_platform_snowflake.unique_mart_order_events_event_id.6a2025f6b1"
+[0m15:21:28.590170 [debug] [Thread-1 (]: On test.enterprise_platform_snowflake.unique_mart_order_events_event_id.6a2025f6b1: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "test.enterprise_platform_snowflake.unique_mart_order_events_event_id.6a2025f6b1"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    event_id as unique_field,
+    count(*) as n_records
+
+from ENTERPRISE_PLATFORM.MARTS.mart_order_events
+where event_id is not null
+group by event_id
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m15:21:28.590651 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m15:21:28.656194 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 1.414 seconds
+[0m15:21:28.658528 [debug] [Thread-3 (]: On test.enterprise_platform_snowflake.not_null_stg_orders_customer_id.af79d5e4b5: Close
+[0m15:21:29.127543 [info ] [Thread-2 (]: 7 of 14 PASS not_null_stg_order_events_order_id ................................ [[32mPASS[0m in 2.08s]
+[0m15:21:29.128516 [debug] [Thread-2 (]: Finished running node test.enterprise_platform_snowflake.not_null_stg_order_events_order_id.77189e6988
+[0m15:21:29.129114 [debug] [Thread-2 (]: Began running node test.enterprise_platform_snowflake.unique_mart_orders_order_id.131efd2cc2
+[0m15:21:29.129697 [info ] [Thread-2 (]: 11 of 14 START test unique_mart_orders_order_id ................................ [RUN]
+[0m15:21:29.130373 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.enterprise_platform_snowflake.not_null_stg_order_events_order_id.77189e6988, now test.enterprise_platform_snowflake.unique_mart_orders_order_id.131efd2cc2)
+[0m15:21:29.130896 [debug] [Thread-2 (]: Began compiling node test.enterprise_platform_snowflake.unique_mart_orders_order_id.131efd2cc2
+[0m15:21:29.135793 [debug] [Thread-2 (]: Writing injected SQL for node "test.enterprise_platform_snowflake.unique_mart_orders_order_id.131efd2cc2"
+[0m15:21:29.136540 [debug] [Thread-2 (]: Began executing node test.enterprise_platform_snowflake.unique_mart_orders_order_id.131efd2cc2
+[0m15:21:29.139245 [debug] [Thread-2 (]: Writing runtime sql for node "test.enterprise_platform_snowflake.unique_mart_orders_order_id.131efd2cc2"
+[0m15:21:29.140349 [debug] [Thread-2 (]: Using snowflake connection "test.enterprise_platform_snowflake.unique_mart_orders_order_id.131efd2cc2"
+[0m15:21:29.140846 [debug] [Thread-2 (]: On test.enterprise_platform_snowflake.unique_mart_orders_order_id.131efd2cc2: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "test.enterprise_platform_snowflake.unique_mart_orders_order_id.131efd2cc2"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    order_id as unique_field,
+    count(*) as n_records
+
+from ENTERPRISE_PLATFORM.MARTS.mart_orders
+where order_id is not null
+group by order_id
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m15:21:29.141260 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m15:21:29.165190 [info ] [Thread-3 (]: 8 of 14 PASS not_null_stg_orders_customer_id ................................... [[32mPASS[0m in 1.93s]
+[0m15:21:29.171209 [debug] [Thread-3 (]: Finished running node test.enterprise_platform_snowflake.not_null_stg_orders_customer_id.af79d5e4b5
+[0m15:21:29.172060 [debug] [Thread-3 (]: Began running node test.enterprise_platform_snowflake.unique_stg_customers_customer_id.c7614daada
+[0m15:21:29.175586 [info ] [Thread-3 (]: 12 of 14 START test unique_stg_customers_customer_id ........................... [RUN]
+[0m15:21:29.181202 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.enterprise_platform_snowflake.not_null_stg_orders_customer_id.af79d5e4b5, now test.enterprise_platform_snowflake.unique_stg_customers_customer_id.c7614daada)
+[0m15:21:29.189438 [debug] [Thread-3 (]: Began compiling node test.enterprise_platform_snowflake.unique_stg_customers_customer_id.c7614daada
+[0m15:21:29.194425 [debug] [Thread-3 (]: Writing injected SQL for node "test.enterprise_platform_snowflake.unique_stg_customers_customer_id.c7614daada"
+[0m15:21:29.197031 [debug] [Thread-3 (]: Began executing node test.enterprise_platform_snowflake.unique_stg_customers_customer_id.c7614daada
+[0m15:21:29.201822 [debug] [Thread-3 (]: Writing runtime sql for node "test.enterprise_platform_snowflake.unique_stg_customers_customer_id.c7614daada"
+[0m15:21:29.203187 [debug] [Thread-3 (]: Using snowflake connection "test.enterprise_platform_snowflake.unique_stg_customers_customer_id.c7614daada"
+[0m15:21:29.203758 [debug] [Thread-3 (]: On test.enterprise_platform_snowflake.unique_stg_customers_customer_id.c7614daada: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "test.enterprise_platform_snowflake.unique_stg_customers_customer_id.c7614daada"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    customer_id as unique_field,
+    count(*) as n_records
+
+from ENTERPRISE_PLATFORM.STAGING.stg_customers
+where customer_id is not null
+group by customer_id
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m15:21:29.204169 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m15:21:29.620192 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 1.419 seconds
+[0m15:21:29.622664 [debug] [Thread-4 (]: On test.enterprise_platform_snowflake.not_null_stg_orders_order_id.81cfe2fe64: Close
+[0m15:21:30.142178 [info ] [Thread-4 (]: 9 of 14 PASS not_null_stg_orders_order_id ...................................... [[32mPASS[0m in 1.95s]
+[0m15:21:30.143550 [debug] [Thread-4 (]: Finished running node test.enterprise_platform_snowflake.not_null_stg_orders_order_id.81cfe2fe64
+[0m15:21:30.144210 [debug] [Thread-4 (]: Began running node test.enterprise_platform_snowflake.unique_stg_order_events_event_id.5a198bea93
+[0m15:21:30.144898 [info ] [Thread-4 (]: 13 of 14 START test unique_stg_order_events_event_id ........................... [RUN]
+[0m15:21:30.145602 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.enterprise_platform_snowflake.not_null_stg_orders_order_id.81cfe2fe64, now test.enterprise_platform_snowflake.unique_stg_order_events_event_id.5a198bea93)
+[0m15:21:30.146163 [debug] [Thread-4 (]: Began compiling node test.enterprise_platform_snowflake.unique_stg_order_events_event_id.5a198bea93
+[0m15:21:30.152537 [debug] [Thread-4 (]: Writing injected SQL for node "test.enterprise_platform_snowflake.unique_stg_order_events_event_id.5a198bea93"
+[0m15:21:30.153408 [debug] [Thread-4 (]: Began executing node test.enterprise_platform_snowflake.unique_stg_order_events_event_id.5a198bea93
+[0m15:21:30.156877 [debug] [Thread-4 (]: Writing runtime sql for node "test.enterprise_platform_snowflake.unique_stg_order_events_event_id.5a198bea93"
+[0m15:21:30.158226 [debug] [Thread-4 (]: Using snowflake connection "test.enterprise_platform_snowflake.unique_stg_order_events_event_id.5a198bea93"
+[0m15:21:30.158910 [debug] [Thread-4 (]: On test.enterprise_platform_snowflake.unique_stg_order_events_event_id.5a198bea93: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "test.enterprise_platform_snowflake.unique_stg_order_events_event_id.5a198bea93"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    event_id as unique_field,
+    count(*) as n_records
+
+from ENTERPRISE_PLATFORM.STAGING.stg_order_events
+where event_id is not null
+group by event_id
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m15:21:30.159458 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m15:21:30.401826 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 1.198 seconds
+[0m15:21:30.404211 [debug] [Thread-3 (]: On test.enterprise_platform_snowflake.unique_stg_customers_customer_id.c7614daada: Close
+[0m15:21:30.436405 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 1.846 seconds
+[0m15:21:30.438686 [debug] [Thread-1 (]: On test.enterprise_platform_snowflake.unique_mart_order_events_event_id.6a2025f6b1: Close
+[0m15:21:30.565811 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 1.424 seconds
+[0m15:21:30.568303 [debug] [Thread-2 (]: On test.enterprise_platform_snowflake.unique_mart_orders_order_id.131efd2cc2: Close
+[0m15:21:30.926177 [info ] [Thread-3 (]: 12 of 14 PASS unique_stg_customers_customer_id ................................. [[32mPASS[0m in 1.74s]
+[0m15:21:30.927300 [debug] [Thread-3 (]: Finished running node test.enterprise_platform_snowflake.unique_stg_customers_customer_id.c7614daada
+[0m15:21:30.927900 [debug] [Thread-3 (]: Began running node test.enterprise_platform_snowflake.unique_stg_orders_order_id.e3b841c71a
+[0m15:21:30.928434 [info ] [Thread-3 (]: 14 of 14 START test unique_stg_orders_order_id ................................. [RUN]
+[0m15:21:30.929147 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.enterprise_platform_snowflake.unique_stg_customers_customer_id.c7614daada, now test.enterprise_platform_snowflake.unique_stg_orders_order_id.e3b841c71a)
+[0m15:21:30.929624 [debug] [Thread-3 (]: Began compiling node test.enterprise_platform_snowflake.unique_stg_orders_order_id.e3b841c71a
+[0m15:21:30.934902 [debug] [Thread-3 (]: Writing injected SQL for node "test.enterprise_platform_snowflake.unique_stg_orders_order_id.e3b841c71a"
+[0m15:21:30.935649 [debug] [Thread-3 (]: Began executing node test.enterprise_platform_snowflake.unique_stg_orders_order_id.e3b841c71a
+[0m15:21:30.938227 [debug] [Thread-3 (]: Writing runtime sql for node "test.enterprise_platform_snowflake.unique_stg_orders_order_id.e3b841c71a"
+[0m15:21:30.939391 [debug] [Thread-3 (]: Using snowflake connection "test.enterprise_platform_snowflake.unique_stg_orders_order_id.e3b841c71a"
+[0m15:21:30.939918 [debug] [Thread-3 (]: On test.enterprise_platform_snowflake.unique_stg_orders_order_id.e3b841c71a: /* {"app": "dbt", "dbt_version": "1.8.7", "profile_name": "enterprise_platform_snowflake", "target_name": "dev", "node_id": "test.enterprise_platform_snowflake.unique_stg_orders_order_id.e3b841c71a"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    order_id as unique_field,
+    count(*) as n_records
+
+from ENTERPRISE_PLATFORM.STAGING.stg_orders
+where order_id is not null
+group by order_id
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m15:21:30.940404 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m15:21:30.977538 [info ] [Thread-1 (]: 10 of 14 PASS unique_mart_order_events_event_id ................................ [[32mPASS[0m in 2.41s]
+[0m15:21:30.979110 [debug] [Thread-1 (]: Finished running node test.enterprise_platform_snowflake.unique_mart_order_events_event_id.6a2025f6b1
+[0m15:21:31.095530 [info ] [Thread-2 (]: 11 of 14 PASS unique_mart_orders_order_id ...................................... [[32mPASS[0m in 1.96s]
+[0m15:21:31.096544 [debug] [Thread-2 (]: Finished running node test.enterprise_platform_snowflake.unique_mart_orders_order_id.131efd2cc2
+[0m15:21:31.454433 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 1.295 seconds
+[0m15:21:31.456797 [debug] [Thread-4 (]: On test.enterprise_platform_snowflake.unique_stg_order_events_event_id.5a198bea93: Close
+[0m15:21:31.994658 [info ] [Thread-4 (]: 13 of 14 PASS unique_stg_order_events_event_id ................................. [[32mPASS[0m in 1.85s]
+[0m15:21:31.995793 [debug] [Thread-4 (]: Finished running node test.enterprise_platform_snowflake.unique_stg_order_events_event_id.5a198bea93
+[0m15:21:32.087202 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 1.147 seconds
+[0m15:21:32.089558 [debug] [Thread-3 (]: On test.enterprise_platform_snowflake.unique_stg_orders_order_id.e3b841c71a: Close
+[0m15:21:32.585797 [info ] [Thread-3 (]: 14 of 14 PASS unique_stg_orders_order_id ....................................... [[32mPASS[0m in 1.66s]
+[0m15:21:32.586785 [debug] [Thread-3 (]: Finished running node test.enterprise_platform_snowflake.unique_stg_orders_order_id.e3b841c71a
+[0m15:21:32.589128 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m15:21:32.589611 [debug] [MainThread]: Connection 'test.enterprise_platform_snowflake.unique_mart_orders_order_id.131efd2cc2' was properly closed.
+[0m15:21:32.589940 [debug] [MainThread]: Connection 'test.enterprise_platform_snowflake.unique_mart_order_events_event_id.6a2025f6b1' was properly closed.
+[0m15:21:32.590238 [debug] [MainThread]: Connection 'test.enterprise_platform_snowflake.unique_stg_order_events_event_id.5a198bea93' was properly closed.
+[0m15:21:32.590592 [debug] [MainThread]: Connection 'test.enterprise_platform_snowflake.unique_stg_orders_order_id.e3b841c71a' was properly closed.
+[0m15:21:32.591077 [info ] [MainThread]: 
+[0m15:21:32.591586 [info ] [MainThread]: Finished running 14 data tests in 0 hours 0 minutes and 10.85 seconds (10.85s).
+[0m15:21:32.594340 [debug] [MainThread]: Command end result
+[0m15:21:32.629455 [info ] [MainThread]: 
+[0m15:21:32.630085 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m15:21:32.630586 [info ] [MainThread]: 
+[0m15:21:32.631061 [info ] [MainThread]: Done. PASS=14 WARN=0 ERROR=0 SKIP=0 TOTAL=14
+[0m15:21:32.632092 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": true, "command_wall_clock_time": 12.496682, "process_user_time": 4.967364, "process_kernel_time": 0.442459, "process_mem_max_rss": "238884", "process_out_blocks": "2392", "process_in_blocks": "0"}
+[0m15:21:32.632667 [debug] [MainThread]: Command `dbt test` succeeded at 15:21:32.632542 after 12.50 seconds
+[0m15:21:32.633075 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76f388c370b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76f388d55fa0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76f3859dc530>]}
+[0m15:21:32.633522 [debug] [MainThread]: Flushing usage events
