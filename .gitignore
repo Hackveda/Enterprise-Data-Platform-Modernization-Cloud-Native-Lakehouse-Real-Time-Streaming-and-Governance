@@ -1,0 +1,11 @@
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+__pycache__/
+*.pyc
+readme-creds.txt
+*-creds.txt
+credentials*.txt
+secrets*.txt
