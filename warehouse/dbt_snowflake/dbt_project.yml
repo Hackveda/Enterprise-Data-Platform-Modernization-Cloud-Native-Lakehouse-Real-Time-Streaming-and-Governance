@@ -10,4 +10,4 @@ models:
       +materialized: view
     marts:
       +schema: MARTS
-      +materialized: table
+      +materialized: view
