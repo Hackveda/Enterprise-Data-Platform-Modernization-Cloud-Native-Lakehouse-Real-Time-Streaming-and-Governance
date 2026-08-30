@@ -1,19 +1,20 @@
 # Enterprise Data Platform Modernization
 
-Runnable proof-of-value for a **cloud-native lakehouse + warehouse + real-time streaming + governance** architecture, now with a **live browser simulator**.
+Runnable proof-of-value for a **cloud-native lakehouse + warehouse + real-time streaming + governance + master data management** architecture, with a **live browser simulator**.
 
 ## What this implements
 
 | Requirement | Implementation in this PoV |
 |---|---|
 | Operational OLTP source | PostgreSQL `customers` + `orders` |
+| Master Data Management | Golden customer ID, deterministic/fuzzy matching, source cross-reference, change audit |
 | Batch ingestion | Python extraction to Parquet |
 | Real-time event ingestion | Redpanda (Kafka API) |
 | Raw lake | MinIO object storage, partitioned Parquet |
 | Curated analytical layer | DuckDB local warehouse + Parquet |
 | Transformations | dbt models: staging → mart |
 | Orchestration | Airflow DAG included; install Airflow separately |
-| Data quality | dbt tests + pytest reconciliation |
+| Data quality | dbt tests + pytest reconciliation + MDM tests |
 | Metadata/catalog | machine-readable catalog JSON |
 | Lineage | explicit source → staging → mart lineage JSON |
 | PII policy | email classification + API masking |
@@ -22,6 +23,54 @@ Runnable proof-of-value for a **cloud-native lakehouse + warehouse + real-time s
 | API security | Bearer token |
 | Observability | Prometheus `/metrics` |
 | Infrastructure as Code | Terraform target-state skeleton |
+
+## Master Data Management flow
+
+The customer domain now has an explicit MDM layer before curated analytics. The operational source keeps its local `customer_id`, while MDM resolves that source record to one enterprise `master_customer_id`.
+
+```text
+PostgreSQL customers
+        │
+        ├──> Bronze/raw customers.parquet
+        │
+        ▼
+Customer MDM
+        │
+        ├── Exact email match
+        ├── Exact phone match
+        ├── Fuzzy name + country match
+        ├── Golden customer record
+        ├── Source → Master cross-reference
+        └── Attribute change audit
+        │
+        ├──> data/mdm/customers_golden.parquet
+        └──> data/mdm/customer_xref.parquet
+                    │
+                    ▼
+               dbt Silver
+                    │
+                    ▼
+              Gold / Marts
+                    │
+                    ▼
+             Data Warehouse
+```
+
+### MDM outcomes
+
+For each incoming customer, `mdm/service.py` returns one of three outcomes:
+
+- `created` — no identity match exists, so a new `MC-...` golden ID is generated.
+- `duplicate` — the identity already exists and the existing master ID is reused.
+- `updated` — the identity already exists but one or more mastered attributes changed; the golden record is updated and the old/new values are written to the audit table.
+
+The implementation keeps three durable MDM structures in `data/mdm.sqlite`:
+
+- `mdm_customer_golden` — one trusted current customer record per enterprise identity.
+- `mdm_source_xref` — maps source-system customer IDs to the golden master ID.
+- `mdm_change_audit` — stores mastered attribute changes with source and timestamp.
+
+The dbt mart continues exposing a `customer_id` column for API compatibility, but that field is now the enterprise `master_customer_id`, not the source-system ID.
 
 ## Live architecture
 
@@ -38,8 +87,19 @@ Redpanda / Kafka ── orders.events.v1
         ├──> DuckDB live_events
         └──> MinIO raw/orders/dt=YYYY-MM-DD/hour=HH/*.parquet
 
-Batch path:
-PostgreSQL OLTP ──> Parquet raw ──> dbt ──> DuckDB curated mart ──> FastAPI
+Batch + MDM path:
+PostgreSQL OLTP
+   ├──> raw Parquet
+   └──> Customer MDM → Golden customer + source cross-reference
+                              │
+                              ▼
+                         dbt staging
+                              │
+                              ▼
+                       DuckDB curated mart
+                              │
+                              ▼
+                           FastAPI
 ```
 
 ## Project Screenshots
@@ -84,13 +144,34 @@ pip install -r requirements.txt
 
 Airflow is intentionally not included in the core environment because its dependency constraints can conflict with dbt. Install it in a separate virtual environment when needed.
 
-## 3. Run batch path and warehouse
+## 3. Run batch + MDM + warehouse path
 
 ```bash
 export DATABASE_URL=postgresql://platform:platform@localhost:5432/commerce
 python batch/extract_postgres.py
 python scripts/build_warehouse.py
 pytest -q
+```
+
+`batch/extract_postgres.py` now performs both raw extraction and customer identity resolution. After the run, inspect:
+
+```bash
+ls -lh data/raw_batch
+ls -lh data/mdm
+```
+
+Expected MDM artifacts:
+
+```text
+data/mdm.sqlite
+data/mdm/customers_golden.parquet
+data/mdm/customer_xref.parquet
+```
+
+Run the MDM tests directly:
+
+```bash
+pytest -q tests/test_mdm.py
 ```
 
 Run dbt:
@@ -100,7 +181,37 @@ dbt run --project-dir warehouse/dbt --profiles-dir warehouse/dbt
 dbt test --project-dir warehouse/dbt --profiles-dir warehouse/dbt
 ```
 
-## 4. Run the live simulator on EC2
+The dbt lineage for customers is now:
+
+```text
+raw customers
+    ↓
+MDM golden customer + cross-reference
+    ↓
+stg_customers + stg_customer_xref
+    ↓
+mart_orders
+```
+
+## 4. Standalone MDM example
+
+The MDM engine can also be invoked directly with JSON over stdin.
+
+```bash
+echo '{
+  "source_system": "cars24_app",
+  "source_customer_id": "C-1001",
+  "full_name": "Asha Rao",
+  "email": "asha@example.com",
+  "phone": "+91 9876543210",
+  "country": "IN",
+  "address": "Hyderabad"
+}' | python -m mdm.service
+```
+
+A first identity returns `created`. Sending the same person from another source with the same normalized email or phone returns the existing `master_customer_id` with `duplicate=true`. Sending changed mastered attributes for the same source identity returns `updated` and records the changed fields.
+
+## 5. Run the live simulator on EC2
 
 Activate the environment and configure host-side service addresses:
 
@@ -146,7 +257,7 @@ Swagger remains available at:
 http://EC2_PUBLIC_IP:8000/docs
 ```
 
-## 5. Verify the raw MinIO bucket
+## 6. Verify the raw MinIO bucket
 
 MinIO console:
 
@@ -172,7 +283,7 @@ The API can also confirm lake writes:
 curl http://localhost:8000/v1/live/lake
 ```
 
-## 6. Manual streaming demo
+## 7. Manual streaming demo
 
 The original command-line producer and lake consumer remain available.
 
@@ -193,7 +304,7 @@ export KAFKA_BOOTSTRAP_SERVERS=localhost:9092
 python producer/order_events.py
 ```
 
-## 7. API examples
+## 8. API examples
 
 ```bash
 curl http://localhost:8000/health
@@ -203,7 +314,7 @@ curl http://localhost:8000/v1/live/events
 curl http://localhost:8000/v1/live/lake
 ```
 
-## 8. AWS Security Group
+## 9. AWS Security Group
 
 For a demo, allow these inbound ports only from your own public IP where possible:
 
@@ -219,6 +330,7 @@ Do not expose PostgreSQL 5432, Kafka 9092, or MinIO API 9000 publicly.
 
 ```bash
 pytest -q tests/test_data_quality.py
+pytest -q tests/test_mdm.py
 cat metadata/catalog.json
 cat metadata/lineage.json
 ```
@@ -231,6 +343,7 @@ http://EC2_PUBLIC_IP:8000/metrics
 
 ## Suggested production substitutions
 
+- MDM SQLite reference service → Informatica MDM / Reltio / Semarchy / cloud-native mastered domain service
 - Redpanda → Confluent Cloud / Amazon MSK / Google Pub/Sub
 - MinIO → S3 / GCS / ADLS
 - DuckDB → Snowflake / BigQuery / Databricks SQL
@@ -242,6 +355,8 @@ http://EC2_PUBLIC_IP:8000/metrics
 ## Target SLOs represented by the design
 
 - Streaming critical-event latency: < 5 seconds
+- MDM identity resolution target: < 1 second per synchronous customer request at PoV scale
+- End-to-end customer master to analytical availability target: < 3 minutes
 - Platform availability target: > 99.9%
 - Pipeline success rate: > 99.5%
 - Catalog/lineage coverage target: > 90%
