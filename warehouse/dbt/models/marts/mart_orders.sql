@@ -1,6 +1,6 @@
 select
     o.order_id,
-    x.master_customer_id,
+    x.master_customer_id as customer_id,
     c.full_name,
     c.email,
     c.country,
